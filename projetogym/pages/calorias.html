@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contador de Calorias - NEXON FITNESS</title>
+    <meta name="description" content="Dashboard profissional para monitoramento de calorias, atividades físicas e saúde" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Audiowide&display=swap" rel="stylesheet" />
+     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/calorias.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <a href="../index.html" class="back-to-home" style="position: fixed; top: 1rem; left: 1rem; color: var(--color-white); font-size: 0.875rem; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; z-index: 1000;">
+        <i class="fa-solid fa-chevron-left"></i> Voltar para Home
+    </a>
+    <!-- App Container -->
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                    <h1 class="app-title">NEXON<span>FITNESS</span></h1>
+                </div>
+                <div class="header-actions">
+                    <button class="header-button" id="dateSelector">
+                        <i class="fa-solid fa-calendar-days button-icon"></i>
+                        <span>Hoje</span>
+                        <i class="fa-solid fa-chevron-down button-icon-small"></i>
+                    </button>
+                    <div class="header-divider"></div>
+                    <button class="header-button" id="syncButton">
+                        <i class="fa-solid fa-rotate button-icon"></i>
+                        <span>Sincronizar</span>
+                    </button>
+                    <div class="header-divider"></div>
+                    <button class="user-button" id="userProfileButton">
+                        <div class="user-avatar">JS</div>
+                        <span>João Silva</span>
+                        <i class="fa-solid fa-chevron-down button-icon-small"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Page Header -->
+            <div class="page-header">
+                <h2 class="page-title">Dashboard de Saúde</h2>
+                <p class="page-subtitle">Monitore suas calorias, atividades e métricas de saúde</p>
+            </div>
+
+            <!-- Quick Stats -->
+            <section class="quick-stats" aria-label="Estatísticas rápidas">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value">72</div>
+                        <div class="stat-label">BPM</div>
+                    </div>
+                    <div class="stat-trend up">
+                        <i class="fa-solid fa-arrow-up"></i>
+                        <span>3%</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-weight-scale"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value">78.5</div>
+                        <div class="stat-label">kg</div>
+                    </div>
+                    <div class="stat-trend down">
+                        <i class="fa-solid fa-arrow-down"></i>
+                        <span>1.2%</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-fire"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value">2,345</div>
+                        <div class="stat-label">kcal</div>
+                    </div>
+                    <div class="stat-trend up">
+                        <i class="fa-solid fa-arrow-up"></i>
+                        <span>5%</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-person-walking"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value">8,742</div>
+                        <div class="stat-label">passos</div>
+                    </div>
+                    <div class="stat-trend up">
+                        <i class="fa-solid fa-arrow-up"></i>
+                        <span>12%</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main Dashboard -->
+            <section class="dashboard" aria-label="Contadores de calorias, passos e sono">
+                <div class="card" role="region" aria-labelledby="stepsTitle">
+                    <div class="card-header">
+                        <h3 id="stepsTitle">
+                            <i class="fa-solid fa-shoe-prints card-icon"></i>
+                            Passos
+                        </h3>
+                        <div class="card-badge">Diário</div>
+                    </div>
+                    <div class="circle-chart" id="stepsChart">
+                        <canvas id="stepsCanvas" width="160" height="160" aria-hidden="true"></canvas>
+                        <div class="center-text">
+                            <span class="value" id="stepsText">8,742</span>
+                            <span class="unit">passos</span>
+                        </div>
+                    </div>
+                    <div class="metrics">
+                        <div class="metric">
+                            <div class="metric-label">
+                                <i class="fa-solid fa-shoe-prints metric-icon"></i>
+                                Total
+                            </div>
+                            <span>8,742 passos</span>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">
+                                <i class="fa-solid fa-bullseye metric-icon"></i>
+                                Meta
+                            </div>
+                            <span>10,000 passos</span>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">
+                                <i class="fa-solid fa-ruler-horizontal metric-icon"></i>
+                                Distância
+                            </div>
+                            <span>6.2 km</span>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">
+                                <i class="fa-solid fa-clock metric-icon"></i>
+                                Restante
+                            </div>
+                            <span>1,258 passos</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="card-button">
+                            <i class="fa-solid fa-chart-line button-icon-small"></i>
+                            <span>Ver Histórico</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card card-secondary" role="region" aria-labelledby="activeCaloriesTitle">
+                    <div class="card-header">
+                        <h3 id="activeCaloriesTitle">
+                            <i class="fa-solid fa-fire card-icon"></i>
+                            Calorias Ativas
+                        </h3>
+                        <div class="card-badge">Diário</div>
+                    </div>
+                    <div class="circle-chart" id="activeCaloriesChart">
+                        <canvas id="activeCaloriesCanvas" width="160" height="160" aria-hidden="true"></canvas>
+                        <div class="center-text">
+                            <span class="value" id="activeCaloriesText">561</span>
+                            <span class="unit">kcal</span>
+                        </div>
+                    </div>
+                    <div class="metrics">
+                        <div class="metric">
+                            <div class="metric-label">
+                                <i class="fa-solid fa-fire metric-icon"></i>
+                                Ativas
+                            </div>
+                            <span>561 kcal</span>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">
+                                <i class="fa-solid fa-utensils metric-icon"></i>
+                                Consumidas
+                            </div>
+                            <span>1,784 kcal</span>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">
+                                <i class="fa-solid fa-bolt metric-icon"></i>
+                                Restantes
+                            </div>
+                            <span>991 kcal</span>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">
+                                <i class="fa-solid fa-dumbbell metric-icon"></i>
+                                Exercícios
+                            </div>
+                            <span>23 min</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="card-button">
+                            <i class="fa-solid fa-plus button-icon-small"></i>
+                            <span>Adicionar Atividade</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card card-tertiary" role="region" aria-labelledby="sleepTimeTitle">
+                    <div class="card-header">
+                        <h3 id="sleepTimeTitle">
+                            <i class="fa-solid fa-moon card-icon"></i>
+                            Tempo de Sono
+                        </h3>
+                        <div class="card-badge">Diário</div>
+                    </div>
+                    <div class="circle-chart" id="sleepTimeChart">
+                        <canvas id="sleepTimeCanvas" width="160" height="160" aria-hidden="true"></canvas>
+                        <div class="center-text">
+                            <span class="value" id="sleepTimeText">8:03</span>
+                            <span class="unit">horas</span>
+                        </div>
+                    </div>
+                    <div class="metrics">
+                        <div class="metric">
+                            <div class="metric-label">
+                                <i class="fa-solid fa-bed metric-icon"></i>
+                                Último Sono
+                            </div>
+                            <span>8:03 h</span>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">
+                                <i class="fa-solid fa-clock-rotate-left metric-icon"></i>
+                                Média 7 dias
+                            </div>
+                            <span>8:37 h</span>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">
+                                <i class="fa-solid fa-moon metric-icon"></i>
+                                Sono Profundo
+                            </div>
+                            <span>2:45 h</span>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">
+                                <i class="fa-solid fa-star metric-icon"></i>
+                                Qualidade
+                            </div>
+                            <span>87%</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="card-button">
+                            <i class="fa-solid fa-chart-line button-icon-small"></i>
+                            <span>Ver Detalhes</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Weekly Summary -->
+            <section class="summary" aria-label="Resumo semanal de calorias">
+                <div class="summary-header">
+                    <h3>
+                        <i class="fa-solid fa-calendar-week summary-icon"></i>
+                        Progresso Semanal
+                    </h3>
+                    <div class="summary-actions">
+                        <button class="summary-button active">Semana</button>
+                        <button class="summary-button">Mês</button>
+                        <button class="summary-button">Ano</button>
+                    </div>
+                </div>
+                <div class="timeline-chart">
+                    <canvas id="weeklySummaryChart" role="img" aria-label="Gráfico de barras do resumo semanal de calorias"></canvas>
+                </div>
+                <div class="chart-legend">
+                    <div class="chart-legend-item">
+                        <div class="chart-legend-color primary"></div>
+                        <span>Calorias Consumidas</span>
+                    </div>
+                    <div class="chart-legend-item">
+                        <div class="chart-legend-color secondary"></div>
+                        <span>Calorias Queimadas</span>
+                    </div>
+                    <div class="chart-legend-item">
+                        <div class="chart-legend-color tertiary"></div>
+                        <span>Meta Diária</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nutrition Tracking -->
+            <section class="nutrition-section" aria-label="Acompanhamento nutricional">
+                <h3 class="section-title">
+                    <i class="fa-solid fa-utensils section-icon"></i>
+                    Acompanhamento Nutricional
+                </h3>
+                
+                <div class="nutrition-grid">
+                    <div class="nutrition-card">
+                        <div class="nutrition-header">
+                            <h4>Macronutrientes</h4>
+                            <span class="nutrition-badge">Hoje</span>
+                        </div>
+                        <div class="nutrition-chart">
+                            <canvas id="macronutrientsChart" width="200" height="200"></canvas>
+                        </div>
+                        <div class="nutrition-legend">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: var(--color-primary);"></div>
+                                <span>Carboidratos (55%)</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: var(--color-secondary);"></div>
+                                <span>Proteínas (25%)</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: var(--color-tertiary);"></div>
+                                <span>Gorduras (20%)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="nutrition-card">
+                        <div class="nutrition-header">
+                            <h4>Refeições de Hoje</h4>
+                            <button class="add-meal-btn">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="meal-list">
+                            <div class="meal-item">
+                                <div class="meal-icon breakfast">
+                                    <i class="fa-solid fa-mug-hot"></i>
+                                </div>
+                                <div class="meal-details">
+                                    <h5>Café da Manhã</h5>
+                                    <p>07:30 • 450 kcal</p>
+                                </div>
+                                <button class="meal-action-btn">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </button>
+                            </div>
+                            <div class="meal-item">
+                                <div class="meal-icon lunch">
+                                    <i class="fa-solid fa-bowl-food"></i>
+                                </div>
+                                <div class="meal-details">
+                                    <h5>Almoço</h5>
+                                    <p>12:15 • 720 kcal</p>
+                                </div>
+                                <button class="meal-action-btn">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </button>
+                            </div>
+                            <div class="meal-item">
+                                <div class="meal-icon snack">
+                                    <i class="fa-solid fa-apple-whole"></i>
+                                </div>
+                                <div class="meal-details">
+                                    <h5>Lanche</h5>
+                                    <p>16:00 • 180 kcal</p>
+                                </div>
+                                <button class="meal-action-btn">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </button>
+                            </div>
+                            <div class="meal-item">
+                                <div class="meal-icon dinner">
+                                    <i class="fa-solid fa-utensils"></i>
+                                </div>
+                                <div class="meal-details">
+                                    <h5>Jantar</h5>
+                                    <p>19:45 • 520 kcal</p>
+                                </div>
+                                <button class="meal-action-btn">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="nutrition-card">
+                        <div class="nutrition-header">
+                            <h4>Consumo de Água</h4>
+                            <span class="nutrition-badge">Hoje</span>
+                        </div>
+                        <div class="water-tracker">
+                            <div class="water-visual">
+                                <div class="water-container">
+                                    <div class="water-level" style="height: 65%;"></div>
+                                    <div class="water-overlay"></div>
+                                </div>
+                            </div>
+                            <div class="water-stats">
+                                <div class="water-consumed">
+                                    <span class="water-value">1.6</span>
+                                    <span class="water-unit">L</span>
+                                </div>
+                                <div class="water-target">Meta: 2.5L</div>
+                                <div class="water-progress">65% completo</div>
+                            </div>
+                        </div>
+                        <div class="water-controls">
+                            <button class="water-btn">
+                                <i class="fa-solid fa-minus"></i>
+                            </button>
+                            <button class="water-btn add">
+                                <i class="fa-solid fa-plus"></i>
+                                <span>Adicionar 250ml</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="nutrition-card">
+                        <div class="nutrition-header">
+                            <h4>Micronutrientes</h4>
+                            <span class="nutrition-badge">Hoje</span>
+                        </div>
+                        <div class="micronutrients-list">
+                            <div class="micronutrient-item">
+                                <div class="micronutrient-info">
+                                    <span class="micronutrient-name">Vitamina C</span>
+                                    <span class="micronutrient-value">85mg / 90mg</span>
+                                </div>
+                                <div class="micronutrient-progress">
+                                    <div class="progress-bar" style="width: 94%;"></div>
+                                </div>
+                            </div>
+                            <div class="micronutrient-item">
+                                <div class="micronutrient-info">
+                                    <span class="micronutrient-name">Cálcio</span>
+                                    <span class="micronutrient-value">750mg / 1000mg</span>
+                                </div>
+                                <div class="micronutrient-progress">
+                                    <div class="progress-bar" style="width: 75%;"></div>
+                                </div>
+                            </div>
+                            <div class="micronutrient-item">
+                                <div class="micronutrient-info">
+                                    <span class="micronutrient-name">Ferro</span>
+                                    <span class="micronutrient-value">12mg / 18mg</span>
+                                </div>
+                                <div class="micronutrient-progress">
+                                    <div class="progress-bar" style="width: 67%;"></div>
+                                </div>
+                            </div>
+                            <div class="micronutrient-item">
+                                <div class="micronutrient-info">
+                                    <span class="micronutrient-name">Potássio</span>
+                                    <span class="micronutrient-value">2.8g / 3.5g</span>
+                                </div>
+                                <div class="micronutrient-progress">
+                                    <div class="progress-bar" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                            <div class="micronutrient-item">
+                                <div class="micronutrient-info">
+                                    <span class="micronutrient-name">Vitamina D</span>
+                                    <span class="micronutrient-value">12μg / 15μg</span>
+                                </div>
+                                <div class="micronutrient-progress">
+                                    <div class="progress-bar" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Workout Tracking -->
+            <section class="workout-section" aria-label="Acompanhamento de treinos">
+                <h3 class="section-title">
+                    <i class="fa-solid fa-dumbbell section-icon"></i>
+                    Atividades Recentes
+                </h3>
+                
+                <div class="workout-list">
+                    <div class="workout-item">
+                        <div class="workout-icon running">
+                            <i class="fa-solid fa-person-running"></i>
+                        </div>
+                        <div class="workout-details">
+                            <div class="workout-header">
+                                <h4>Corrida Matinal</h4>
+                                <span class="workout-date">Hoje, 06:45</span>
+                            </div>
+                            <div class="workout-stats">
+                                <div class="workout-stat">
+                                    <i class="fa-solid fa-stopwatch"></i>
+                                    <span>32 min</span>
+                                </div>
+                                <div class="workout-stat">
+                                    <i class="fa-solid fa-route"></i>
+                                    <span>4.2 km</span>
+                                </div>
+                                <div class="workout-stat">
+                                    <i class="fa-solid fa-fire"></i>
+                                    <span>320 kcal</span>
+                                </div>
+                                <div class="workout-stat">
+                                    <i class="fa-solid fa-heart-pulse"></i>
+                                    <span>142 bpm</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="workout-action-btn">
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="workout-item">
+                        <div class="workout-icon strength">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+                        <div class="workout-details">
+                            <div class="workout-header">
+                                <h4>Treino de Força</h4>
+                                <span class="workout-date">Ontem, 18:30</span>
+                            </div>
+                            <div class="workout-stats">
+                                <div class="workout-stat">
+                                    <i class="fa-solid fa-stopwatch"></i>
+                                    <span>45 min</span>
+                                </div>
+                                <div class="workout-stat">
+                                    <i class="fa-solid fa-fire"></i>
+                                    <span>280 kcal</span>
+                                </div>
+                                <div class="workout-stat">
+                                    <i class="fa-solid fa-heart-pulse"></i>
+                                    <span>128 bpm</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="workout-action-btn">
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="workout-item">
+                        <div class="workout-icon cycling">
+                            <i class="fa-solid fa-bicycle"></i>
+                        </div>
+                        <div class="workout-details">
+                            <div class="workout-header">
+                                <h4>Ciclismo</h4>
+                                <span class="workout-date">3 dias atrás, 17:15</span>
+                            </div>
+                            <div class="workout-stats">
+                                <div class="workout-stat">
+                                    <i class="fa-solid fa-stopwatch"></i>
+                                    <span>60 min</span>
+                                </div>
+                                <div class="workout-stat">
+                                    <i class="fa-solid fa-route"></i>
+                                    <span>18.5 km</span>
+                                </div>
+                                <div class="workout-stat">
+                                    <i class="fa-solid fa-fire"></i>
+                                    <span>450 kcal</span>
+                                </div>
+                                <div class="workout-stat">
+                                    <i class="fa-solid fa-heart-pulse"></i>
+                                    <span>155 bpm</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="workout-action-btn">
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="workout-actions">
+                    <button class="btn btn-primary">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>Adicionar Atividade</span>
+                    </button>
+                    <button class="btn btn-outline">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span>Ver Calendário</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Health Insights -->
+            <section class="insights-section" aria-label="Insights de saúde">
+                <h3 class="section-title">
+                    <i class="fa-solid fa-lightbulb section-icon"></i>
+                    Insights de Saúde
+                </h3>
+                
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <div class="insight-header">
+                            <div class="insight-icon">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <h4>Saúde Cardiovascular</h4>
+                        </div>
+                        <p class="insight-text">Sua frequência cardíaca em repouso diminuiu 5% nas últimas 4 semanas, indicando uma melhora na sua condição cardiovascular.</p>
+                        <button class="insight-button">Ler Mais</button>
+                    </div>
+                    
+                    <div class="insight-card">
+                        <div class="insight-header">
+                            <div class="insight-icon">
+                                <i class="fa-solid fa-bed"></i>
+                            </div>
+                            <h4>Padrões de Sono</h4>
+                        </div>
+                        <p class="insight-text">Você tem dormido em média 8 horas por noite, o que está dentro da faixa recomendada para sua idade. Continue mantendo uma rotina regular.</p>
+                        <button class="insight-button">Ler Mais</button>
+                    </div>
+                    
+                    <div class="insight-card">
+                        <div class="insight-header">
+                            <div class="insight-icon">
+                                <i class="fa-solid fa-utensils"></i>
+                            </div>
+                            <h4>Nutrição</h4>
+                        </div>
+                        <p class="insight-text">Seu consumo de proteínas está abaixo do ideal para seus objetivos de fitness. Considere aumentar a ingestão de alimentos ricos em proteínas.</p>
+                        <button class="insight-button">Ler Mais</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                    <span>NEXON FITNESS</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">Suporte</a>
+                    <a href="#">Contato</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <p class="footer-copyright">© 2025 NEXON FITNESS. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" aria-label="Alternar tema claro/escuro">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+    </div>
+
+    <!-- Modals -->
+    <!-- Add Meal Modal -->
+    <div class="modal" id="addMealModal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Adicionar Refeição</h4>
+                    <button class="modal-close" aria-label="Fechar">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addMealForm">
+                        <div class="form-group">
+                            <label for="mealType" class="form-label">Tipo de Refeição</label>
+                            <select id="mealType" class="form-select">
+                                <option value="breakfast">Café da Manhã</option>
+                                <option value="lunch">Almoço</option>
+                                <option value="snack">Lanche</option>
+                                <option value="dinner">Jantar</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mealTime" class="form-label">Horário</label>
+                            <input type="time" id="mealTime" class="form-control" value="12:00">
+                        </div>
+                        <div class="form-group">
+                            <label for="mealName" class="form-label">Nome da Refeição</label>
+                            <input type="text" id="mealName" class="form-control" placeholder="Ex: Salada com frango grelhado">
+                        </div>
+                        <div class="form-group">
+                            <label for="mealCalories" class="form-label">Calorias (kcal)</label>
+                            <input type="number" id="mealCalories" class="form-control" placeholder="Ex: 450">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Macronutrientes</label>
+                            <div class="input-group">
+                                <span class="input-group-text">Carboidratos (g)</span>
+                                <input type="number" id="mealCarbs" class="form-control" placeholder="Ex: 45">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-text">Proteínas (g)</span>
+                                <input type="number" id="mealProtein" class="form-control" placeholder="Ex: 30">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-text">Gorduras (g)</span>
+                                <input type="number" id="mealFat" class="form-control" placeholder="Ex: 15">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-ghost" data-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-primary" id="saveMealBtn">Salvar Refeição</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Workout Modal -->
+    <div class="modal" id="addWorkoutModal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Adicionar Atividade</h4>
+                    <button class="modal-close" aria-label="Fechar">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addWorkoutForm">
+                        <div class="form-group">
+                            <label for="workoutType" class="form-label">Tipo de Atividade</label>
+                            <select id="workoutType" class="form-select">
+                                <option value="running">Corrida</option>
+                                <option value="walking">Caminhada</option>
+                                <option value="cycling">Ciclismo</option>
+                                <option value="swimming">Natação</option>
+                                <option value="strength">Musculação</option>
+                                <option value="yoga">Yoga</option>
+                                <option value="other">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="workoutDate" class="form-label">Data</label>
+                            <input type="date" id="workoutDate" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="workoutTime" class="form-label">Horário</label>
+                            <input type="time" id="workoutTime" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="workoutDuration" class="form-label">Duração (minutos)</label>
+                            <input type="number" id="workoutDuration" class="form-control" placeholder="Ex: 45">
+                        </div>
+                        <div class="form-group">
+                            <label for="workoutCalories" class="form-label">Calorias Queimadas (estimativa)</label>
+                            <input type="number" id="workoutCalories" class="form-control" placeholder="Ex: 320">
+                        </div>
+                        <div class="form-group">
+                            <label for="workoutDistance" class="form-label">Distância (km, opcional)</label>
+                            <input type="number" id="workoutDistance" class="form-control" placeholder="Ex: 5.2">
+                        </div>
+                        <div class="form-group">
+                            <label for="workoutNotes" class="form-label">Notas</label>
+                            <textarea id="workoutNotes" class="form-control" rows="3" placeholder="Adicione notas sobre seu treino..."></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-ghost" data-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-primary" id="saveWorkoutBtn">Salvar Atividade</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="calorias.js"></script>
+</body>
+</html>

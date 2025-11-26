@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="NEXON Fitness - Sistema para iniciantes no acompanhamento de treinos" />
+  <title>Planilhas Iniciante - NEXON Fitness</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/iniciante.css" />
+</head>
+<body>
+  <main class="main-layout">
+    <aside class="sidebar" role="navigation" aria-label="Menu principal">
+      <div class="sidebar-header">
+        <h2 class="sidebar-logo">NEXON</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="../index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="#"><i class="fas fa-dumbbell"></i> Exercises</a></li>
+          <li><a href="#"><i class="fas fa-search"></i> Explore</a></li>
+          <li><a href="#"><i class="fas fa-book"></i> Library</a></li>
+          <li><a href="#"><i class="fas fa-bell"></i> Notifications</a></li>
+          <li><a href="#"><i class="fas fa-users"></i> Community</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <p>Need help?<br />Contact: <a href="mailto:support@nexon.app">support@nexon.app</a></p>
+        <div class="profile-summary">
+          <div class="profile-avatar" aria-label="Avatar do usuário Gabriel Barbosa"></div>
+          <span class="profile-name">Profile</span>
+        </div>
+      </div>
+    </aside>
+
+    <section class="content-area" role="main">
+      <header class="content-header">
+        <h1>Iniciante</h1>
+      </header>
+
+      <section class="workout-list" aria-label="Lista de treinos">
+        <article class="workout-card" tabindex="0" aria-labelledby="workout-title-1">
+          <div class="workout-header">
+            <div class="avatar" aria-hidden="true"></div>
+            <div class="workout-info">
+              <p class="workout-user">Gabriel Barbosa</p>
+              <time datetime="2025-02-11T11:43">February 11, 2025 at 11:43 AM</time>
+            </div>
+          </div>
+          <h2 id="workout-title-1" class="workout-title">Minha rotina Iniciante</h2>
+          <div class="workout-meta">
+            <span><strong>Duration</strong> 1h 20min</span>
+            <span><strong>Volume</strong> 0kg</span>
+          </div>
+          <ul class="exercise-list">
+            <li>
+              <img src="images/exercicio1.jpg" alt="Exercício 1" />
+              <div>
+                <strong>Exercício 1</strong>
+                <p>3 Sets · 0 - 0 Reps</p>
+              </div>
+            </li>
+            <li>
+              <img src="images/exercicio2.jpg" alt="Exercício 2" />
+              <div>
+                <strong>Exercício 2</strong>
+                <p>3 Sets · 0 - 0 Reps</p>
+              </div>
+            </li>
+            <li>
+              <img src="images/exercicio3.jpg" alt="Exercício 3" />
+              <div>
+                <strong>Exercício 3</strong>
+                <p>3 Sets · 0 - 0 Reps</p>
+              </div>
+            </li>
+          </ul>
+        </article>
+      </section>
+    </section>
+
+    <aside class="profile-panel" role="complementary" aria-label="Painel de perfil do usuário">
+      <div class="profile-card">
+        <div class="profile-avatar-large" aria-label="Avatar do usuário Gabriel Barbosa"></div>
+        <h2 class="profile-name">Gabriel Barbosa</h2>
+        <div class="profile-stats">
+          <div>
+            <span class="stat-label">FOLLOWING</span>
+            <span class="stat-value">0</span>
+          </div>
+          <div>
+            <span class="stat-label">FOLLOWERS</span>
+            <span class="stat-value">0</span>
+          </div>
+          <div>
+            <span class="stat-label">WORKOUTS</span>
+            <span class="stat-value">10</span>
+          </div>
+        </div>
+        <button class="btn-profile-log" aria-label="Seu registro de treino">Your Training Log <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </aside>
+  </main>
+</body>
+</html>

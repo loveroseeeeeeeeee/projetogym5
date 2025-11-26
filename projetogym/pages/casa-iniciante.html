@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Treino em Casa - Iniciante | NEXON FITNESS</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+      color: #fff;
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Adicionando partículas de fundo animadas */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #ffffff;
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+      opacity: 0.3;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+      50% { transform: translateY(-20px) rotate(180deg); opacity: 0.6; }
+    }
+
+    .planilha-container {
+      max-width: 1100px;
+      margin: 3vh auto;
+      background: rgba(20,20,20,0.95);
+      border-radius: 24px;
+      box-shadow: 0 0 40px rgba(255,255,255,0.1), inset 0 1px 0 rgba(255,255,255,0.1);
+      padding: 4rem 3.5rem;
+      text-align: center;
+      border: 2px solid #ffffff;
+      position: relative;
+      z-index: 2;
+      backdrop-filter: blur(10px);
+      animation: slideIn 0.8s ease-out;
+    }
+
+    /* Animação de entrada do container */
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .planilha-title {
+      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: 2.5rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      letter-spacing: 3px;
+      text-shadow: 0 0 20px rgba(255,255,255,0.3);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    /* Efeito de brilho pulsante no título */
+    @keyframes glow {
+      from { text-shadow: 0 0 20px rgba(255,255,255,0.3); }
+      to { text-shadow: 0 0 30px rgba(255,255,255,0.5), 0 0 40px rgba(255,255,255,0.2); }
+    }
+
+    .planilha-desc {
+      font-size: 1.2rem;
+      color: #e0e0e0;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+
+    /* Adicionando seção de estatísticas do treino */
+    .treino-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255,255,255,0.1);
+      border-color: #ffffff;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: #ccc;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .treino-table {
+      width: 100%;
+      margin: 2.5rem 0;
+      border-collapse: collapse;
+      background: #000000;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    }
+
+    .treino-table th, .treino-table td {
+      padding: 1.2rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      text-align: left;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .treino-table th {
+      background: linear-gradient(135deg, #333333, #1a1a1a);
+      color: #fff;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* Efeitos hover nas linhas da tabela */
+    .treino-table tbody tr {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .treino-table tbody tr:hover {
+      background: rgba(255, 255, 255, 0.05);
+      transform: scale(1.02);
+    }
+
+    .treino-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Adicionando ícones para cada exercício */
+    .exercise-name {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .exercise-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      border: 2px solid #ffffff;
+      filter: grayscale(100%) contrast(1.2);
+      object-fit: cover;
+    }
+
+    /* Timer interativo para descanso */
+    .timer-section {
+      background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .timer-title {
+      font-size: 1.4rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .timer-display {
+      font-size: 3rem;
+      font-family: 'Orbitron', monospace;
+      color: #fff;
+      margin: 1rem 0;
+      text-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+
+    .timer-controls {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .timer-btn {
+      background: linear-gradient(135deg, #333333, #1a1a1a);
+      border: 2px solid #ffffff;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .timer-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255,255,255,0.2);
+      background: linear-gradient(135deg, #ffffff, #e0e0e0);
+      color: #000000;
+    }
+
+    .timer-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Seção de progresso do treino */
+    .progress-section {
+      background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .progress-title {
+      font-size: 1.4rem;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 12px;
+      background: #333;
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #ffffff, #e0e0e0);
+      border-radius: 6px;
+      transition: width 0.5s ease;
+      width: 0%;
+    }
+
+    .exercise-checklist {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .exercise-group {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .exercise-group-title {
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .series-progress {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .series-indicator {
+      padding: 4px 8px;
+      background: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 15px;
+      font-size: 12px;
+      color: #666;
+      transition: all 0.3s ease;
+    }
+
+    .series-indicator.completed {
+      background: #333;
+      color: white;
+      border-color: #333;
+    }
+
+    .obs {
+      margin-top: 2.5rem;
+      font-size: 1rem;
+      color: #ffffff;
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      line-height: 1.6;
+    }
+
+    .back-home {
+      display: inline-block;
+      margin: 2.5rem auto 0 auto;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 1rem 2rem;
+      border: 2px solid #ffffff;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .back-home:hover {
+      background: #ffffff;
+      color: #000000;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255,255,255,0.2);
+    }
+
+    /* Adicionando estilos para o modal de detalhes do exercício */
+    .exercise-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      backdrop-filter: blur(10px);
+    }
+
+    .modal-content {
+      background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+      margin: 5% auto;
+      padding: 2rem;
+      border: 2px solid #ffffff;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 600px;
+      position: relative;
+      animation: modalSlideIn 0.3s ease-out;
+      /* Adicionando altura máxima e scroll para o modal */
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    @keyframes modalSlideIn {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .close-modal {
+      color: #ffffff;
+      float: right;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .close-modal:hover {
+      color: #ccc;
+      transform: scale(1.1);
+    }
+
+    .modal-exercise-image {
+      width: 100%;
+      max-width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin: 1rem auto;
+      display: block;
+      border: 2px solid #ffffff;
+    }
+
+    .modal-title {
+      font-size: 1.8rem;
+      color: #ffffff;
+      margin: 1rem 0;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .modal-section {
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      border-left: 4px solid #ffffff;
+    }
+
+    .modal-section h3 {
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .modal-section p, .modal-section ul {
+      color: #e0e0e0;
+      line-height: 1.6;
+      margin: 0.5rem 0;
+    }
+
+    .modal-section ul {
+      padding-left: 1.5rem;
+    }
+
+    .modal-section li {
+      margin: 0.3rem 0;
+    }
+
+    .muscle-groups {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Adicionando estilos para desenhos dos músculos */
+    /* Removendo estilos do diagrama de músculos */
+
+    .muscle-tag {
+      font-size: 0.8rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      min-width: fit-content;
+    }
+
+    .muscle-tag.primary {
+      /* Mudando cor do músculo alvo para vermelho */
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.1));
+      color: #dc2626;
+      border: 1px solid #dc2626;
+      box-shadow: 0 2px 4px rgba(239, 68, 68, 0.2);
+    }
+
+    .muscle-tag.secondary {
+      /* Mudando cor dos músculos secundários para verde */
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(22, 163, 74, 0.1));
+      color: #16a34a;
+      border: 1px solid #16a34a;
+      box-shadow: 0 2px 4px rgba(34, 197, 94, 0.2);
+    }
+
+    /* Adicionando estilos para badges de intensidade e tags de músculos */
+    .intensity-badge {
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .intensity-badge.low {
+      background: rgba(34, 197, 94, 0.2);
+      color: #22c55e;
+      border: 1px solid #22c55e;
+    }
+
+    .intensity-badge.medium {
+      background: rgba(251, 191, 36, 0.2);
+      color: #fbbf24;
+      border: 1px solid #fbbf24;
+    }
+
+    .intensity-badge.high {
+      background: rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+      border: 1px solid #ef4444;
+    }
+
+    .series-btn.completed {
+      /* Mudando cor de fundo para verde quando completado */
+      background: #22c55e !important;
+      color: white !important;
+      border-color: #22c55e !important;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+    }
+
+    .series-btn.completed:hover {
+      background: #16a34a !important;
+      border-color: #16a34a !important;
+      box-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .planilha-container {
+        margin: 1vh auto;
+        padding: 2rem 1rem;
+        max-width: 98%;
+        border-radius: 20px;
+      }
+      
+      .planilha-title {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+      }
+      
+      .planilha-desc {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+      }
+      
+      .treino-table {
+        font-size: 0.85rem;
+        margin: 0 -0.5rem;
+      }
+      
+      .treino-table th, .treino-table td {
+        font-size: 0.85rem;
+        padding: 0.8rem 0.4rem;
+      }
+      
+      .exercise-icon {
+        width: 32px;
+        height: 32px;
+      }
+      
+      .series-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+        margin: 0 2px;
+      }
+      
+      .timer-display {
+        font-size: 2.2rem;
+        padding: 1rem;
+      }
+      
+      .treino-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .stat-card {
+        padding: 1rem 0.8rem;
+      }
+      
+      .modal-content {
+        width: 95%;
+        margin: 5% auto;
+        padding: 1.5rem;
+        max-height: 90vh;
+        border-radius: 16px;
+      }
+      
+      .modal-title {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+      }
+      
+      .timer-controls {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      
+      .timer-btn {
+        width: 100%;
+        max-width: 180px;
+        padding: 0.8rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Melhorando ainda mais para telas muito pequenas */
+    @media (max-width: 480px) {
+      .planilha-container {
+        margin: 0.5vh auto;
+        padding: 1.5rem 0.8rem;
+        border-radius: 16px;
+      }
+      
+      .planilha-title {
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      .planilha-desc {
+        font-size: 0.85rem;
+        margin-bottom: 1.2rem;
+      }
+      
+      .treino-stats {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+        margin-bottom: 1.2rem;
+      }
+      
+      .stat-card {
+        padding: 0.8rem;
+      }
+      
+      .stat-value {
+        font-size: 1.6rem;
+      }
+      
+      .stat-label {
+        font-size: 0.8rem;
+      }
+      
+      .treino-table {
+        font-size: 0.8rem;
+        margin: 0 -0.3rem;
+      }
+      
+      .treino-table th, .treino-table td {
+        padding: 0.6rem 0.2rem;
+        font-size: 0.8rem;
+      }
+      
+      .exercise-icon {
+        width: 28px;
+        height: 28px;
+      }
+      
+      .series-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.75rem;
+        margin: 0 1px;
+        border-radius: 6px;
+      }
+      
+      .timer-display {
+        font-size: 1.8rem;
+        padding: 0.8rem;
+      }
+      
+      .modal-content {
+        width: 98%;
+        margin: 2% auto;
+        padding: 1.2rem;
+        max-height: 95vh;
+        border-radius: 12px;
+      }
+      
+      .modal-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      .timer-btn {
+        padding: 0.7rem;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Adicionando partículas de fundo -->
+  <div class="particles" id="particles"></div>
+
+  <div class="planilha-container">
+    <div class="planilha-title">Treino em Casa - Iniciante</div>
+    <div class="planilha-desc">
+      Ideal para quem está começando e quer evoluir com segurança.<br>
+      Sem equipamentos, apenas peso corporal e muita motivação!
+    </div>
+
+    <!-- Adicionando estatísticas do treino -->
+    <div class="treino-stats">
+      <div class="stat-card">
+        <div class="stat-number">6</div>
+        <div class="stat-label">Exercícios</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">18</div>
+        <div class="stat-label">Séries Totais</div>
+      </div>
+    </div>
+
+    <!-- Removendo seção de resumo do treino -->
+    <table class="treino-table">
+      <thead>
+        <tr>
+          <th>Exercício</th>
+          <th>Músculos</th>
+          <th>Séries</th>
+          <th>Repetições</th>
+          <th>Descanso</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr onclick="showExerciseDetails('agachamento')">
+          <td>
+            <div class="exercise-name">
+              <img src="/placeholder.svg?height=40&width=40" alt="Agachamento" class="exercise-icon">
+              <div>Agachamento</div>
+            </div>
+          </td>
+          <!-- Adicionando coluna de músculos trabalhados -->
+          <td>
+            <div class="muscle-tags">
+              <span class="muscle-tag primary">Quadríceps</span>
+              <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.2rem;">
+                <span class="muscle-tag secondary">Glúteos</span>
+                <span class="muscle-tag secondary">Panturrilha</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="series-controls">
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(0, 0, 40)" id="series-0-0">1</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(0, 1, 40)" id="series-0-1">2</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(0, 2, 40)" id="series-0-2">3</button>
+            </div>
+          </td>
+          <td>12</td>
+          <td>40s</td>
+        </tr>
+        <tr onclick="showExerciseDetails('flexao')">
+          <td>
+            <div class="exercise-name">
+              <img src="/placeholder.svg?height=40&width=40" alt="Flexão de Braço" class="exercise-icon">
+              <div>Flexão de Braço (joelhos apoiados)</div>
+            </div>
+          </td>
+          <td>
+            <div class="muscle-tags">
+              <span class="muscle-tag primary">Peitorais</span>
+              <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.2rem;">
+                <span class="muscle-tag secondary">Tríceps</span>
+                <span class="muscle-tag secondary">Ombros</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="series-controls">
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(1, 0, 40)" id="series-1-0">1</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(1, 1, 40)" id="series-1-1">2</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(1, 2, 40)" id="series-1-2">3</button>
+            </div>
+          </td>
+          <td>10</td>
+          <td>40s</td>
+        </tr>
+        <tr onclick="showExerciseDetails('abdominal')">
+          <td>
+            <div class="exercise-name">
+              <img src="/placeholder.svg?height=40&width=40" alt="Abdominal Crunch" class="exercise-icon">
+              <div>Abdominal Crunch</div>
+            </div>
+          </td>
+          <td>
+            <div class="muscle-tags">
+              <span class="muscle-tag primary">Abdômen</span>
+              <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.2rem;">
+                <span class="muscle-tag secondary">Core</span>
+                <span class="muscle-tag secondary">Oblíquos</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="series-controls">
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(2, 0, 30)" id="series-2-0">1</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(2, 1, 30)" id="series-2-1">2</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(2, 2, 30)" id="series-2-2">3</button>
+            </div>
+          </td>
+          <td>15</td>
+          <td>30s</td>
+        </tr>
+        <tr onclick="showExerciseDetails('elevacao')">
+          <td>
+            <div class="exercise-name">
+              <img src="/placeholder.svg?height=40&width=40" alt="Elevação de Quadril" class="exercise-icon">
+              <div>Elevação de Quadril</div>
+            </div>
+          </td>
+          <td>
+            <div class="muscle-tags">
+              <span class="muscle-tag primary">Glúteos</span>
+              <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.2rem;">
+                <span class="muscle-tag secondary">Posterior</span>
+                <span class="muscle-tag secondary">Core</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="series-controls">
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(3, 0, 30)" id="series-3-0">1</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(3, 1, 30)" id="series-3-1">2</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(3, 2, 30)" id="series-3-2">3</button>
+            </div>
+          </td>
+          <td>12</td>
+          <td>30s</td>
+        </tr>
+        <tr onclick="showExerciseDetails('prancha')">
+          <td>
+            <div class="exercise-name">
+              <img src="/placeholder.svg?height=40&width=40" alt="Prancha" class="exercise-icon">
+              <div>Prancha</div>
+            </div>
+          </td>
+          <td>
+            <div class="muscle-tags">
+              <span class="muscle-tag primary">Core</span>
+              <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.2rem;">
+                <span class="muscle-tag secondary">Ombros</span>
+                <span class="muscle-tag secondary">Braços</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="series-controls">
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(4, 0, 30)" id="series-4-0">1</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(4, 1, 30)" id="series-4-1">2</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(4, 2, 30)" id="series-4-2">3</button>
+            </div>
+          </td>
+          <td>20s</td>
+          <td>30s</td>
+        </tr>
+        <tr onclick="showExerciseDetails('polichinelo')">
+          <td>
+            <div class="exercise-name">
+              <img src="/placeholder.svg?height=40&width=40" alt="Polichinelo" class="exercise-icon">
+              <div>Polichinelo</div>
+            </div>
+          </td>
+          <td>
+            <div class="muscle-tags">
+              <span class="muscle-tag primary">Cardio</span>
+              <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.2rem;">
+                <span class="muscle-tag secondary">Pernas</span>
+                <span class="muscle-tag secondary">Braços</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="series-controls">
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(5, 0, 30)" id="series-5-0">1</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(5, 1, 30)" id="series-5-1">2</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(5, 2, 30)" id="series-5-2">3</button>
+            </div>
+          </td>
+          <td>20</td>
+          <td>30s</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Timer interativo para descanso -->
+    <div class="timer-section">
+      <div class="timer-title">⏱️ Timer de Descanso</div>
+      <div class="timer-display" id="timerDisplay">00:40</div>
+      <div class="timer-controls">
+        <button class="timer-btn" onclick="startTimer(40)">Iniciar (40s)</button>
+        <button class="timer-btn" onclick="startTimer(60)">1 Min</button>
+        <button class="timer-btn" onclick="startTimer(90)">1:30 Min</button>
+        <button class="timer-btn" onclick="pauseTimer()">Pausar/Retomar</button>
+        <button class="timer-btn" onclick="resetTimer()">Reset</button>
+      </div>
+    </div>
+
+    <!-- Adicionando cronômetro do treino visível -->
+    <div class="workout-timer-section" style="margin: 2rem 0; padding: 2rem; background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05)); border-radius: 16px; border: 1px solid rgba(34, 197, 94, 0.3); text-align: center;">
+      <div class="workout-timer-title" style="color: #22c55e; font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">🏃‍♂️ Cronômetro do Treino</div>
+      <div class="workout-timer-display" id="workoutTimerDisplay" style="font-size: 3rem; font-weight: bold; color: #ffffff; margin-bottom: 1rem; font-family: 'Orbitron', monospace;">00:00</div>
+      <div class="workout-timer-controls" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <button class="timer-btn" onclick="pauseWorkoutTimer()" id="pauseWorkoutBtn" style="background: #f59e0b; color: #000;">⏸️ Pausar Treino</button>
+        <button class="timer-btn" onclick="finishWorkout()" style="background: #ef4444; color: #fff;">🏁 Finalizar Treino</button>
+      </div>
+    </div>
+
+    <div class="obs">
+      <strong>💡 Dicas Importantes:</strong><br>
+      • Realize o treino 3x por semana, alternando os dias<br>
+      • Aumente as repetições conforme sentir facilidade<br>
+      • Mantenha hidratação e alimentação equilibrada<br>
+      • Descanse adequadamente entre os treinos<br>
+      • Escute seu corpo e respeite seus limites
+    </div>
+    
+    <a href="../index.html" class="back-home">← Voltar para a Home</a>
+
+    <!-- Removendo seção final com estatísticas -->
+  </div>
+
+  <!-- Adicionando modal para detalhes dos exercícios -->
+  <div id="exerciseModal" class="exercise-modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <img id="modalImage" class="modal-exercise-image" src="/placeholder.svg" alt="">
+      <h2 id="modalTitle" class="modal-title"></h2>
+      
+      <div class="modal-section">
+        <h3>🎯 Músculos Trabalhados</h3>
+        <div id="modalMuscles" class="muscle-groups"></div>
+      </div>
+      
+      <div class="modal-section">
+        <h3>📋 Como Executar</h3>
+        <div id="modalInstructions"></div>
+      </div>
+      
+      <div class="modal-section">
+        <h3>⚠️ Dicas Importantes</h3>
+        <div id="modalTips"></div>
+      </div>
+      
+      <div class="modal-section">
+        <h3>🚫 Erros Comuns</h3>
+        <div id="modalErrors"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+    // Criar partículas de fundo
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 50;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 6 + 's';
+        particle.style.animationDuration = (Math.random() * 3 + 4) + 's';
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // Timer de descanso
+    let timerInterval;
+    let currentTime = 0;
+    let isRunning = false;
+
+    let workoutStartTime = null;
+    let workoutTimer = null;
+    let workoutDuration = 0;
+    let workoutPaused = false;
+    let pausedTime = 0;
+
+    function startWorkoutTimer() {
+      if (!workoutStartTime) {
+        workoutStartTime = Date.now();
+        workoutPaused = false;
+        pausedTime = 0;
+        
+        workoutTimer = setInterval(() => {
+          if (!workoutPaused) {
+            workoutDuration = Math.floor((Date.now() - workoutStartTime - pausedTime) / 1000);
+            updateWorkoutTimerDisplay();
+          }
+        }, 1000);
+        
+        console.log("[v0] Cronômetro de treino iniciado");
+        updateWorkoutTimerDisplay();
+      }
+    }
+
+    function pauseWorkoutTimer() {
+      const pauseBtn = document.getElementById('pauseWorkoutBtn');
+      
+      if (!workoutStartTime) {
+        alert('⚠️ Inicie o treino completando uma série primeiro!');
+        return;
+      }
+      
+      if (workoutPaused) {
+        // Despausar
+        workoutPaused = false;
+        pausedTime += Date.now() - pauseStartTime;
+        pauseBtn.textContent = '⏸️ Pausar Treino';
+        pauseBtn.style.background = '#f59e0b';
+        console.log("[v0] Treino despausado");
+      } else {
+        // Pausar
+        workoutPaused = true;
+        pauseStartTime = Date.now();
+        pauseBtn.textContent = '▶️ Continuar Treino';
+        pauseBtn.style.background = '#22c55e';
+        console.log("[v0] Treino pausado");
+      }
+    }
+
+    function updateWorkoutTimerDisplay() {
+      const display = document.getElementById('workoutTimerDisplay');
+      if (display) {
+        display.textContent = formatWorkoutTime(workoutDuration);
+      }
+    }
+
+    function stopWorkoutTimer() {
+      if (workoutTimer) {
+        clearInterval(workoutTimer);
+        workoutTimer = null;
+      }
+    }
+
+    function formatWorkoutTime(seconds) {
+      const minutes = Math.floor(seconds / 60);
+      const remainingSeconds = seconds % 60;
+      return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+    }
+
+    function finishWorkout() {
+      if (!workoutStartTime) {
+        alert('⚠️ Você ainda não iniciou o treino!');
+        return;
+      }
+      
+      const completedCount = Object.keys(completedSeries).length;
+      if (completedCount === 0) {
+        alert('⚠️ Complete pelo menos uma série antes de finalizar o treino!');
+        return;
+      }
+      
+      // Para automaticamente a cronometragem
+      stopWorkoutTimer();
+      workoutPaused = false;
+      
+      // Mostra o resumo final
+      showWorkoutSummary();
+    }
+
+    function showWorkoutSummary() {
+      const completedCount = Object.keys(completedSeries).length;
+      const completionPercentage = Math.round((completedCount / totalSeries) * 100);
+      
+      const musclesWorked = [
+        'Quadríceps', 'Glúteos', 'Peitoral', 'Tríceps', 
+        'Abdômen', 'Core', 'Panturrilha', 'Cardio'
+      ];
+      
+      const summaryHTML = `
+        <div style="
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0,0,0,0.9);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 10000;
+        ">
+          <div style="
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 500px;
+            border: 2px solid #22c55e;
+            box-shadow: 0 0 30px rgba(34, 197, 94, 0.3);
+          ">
+            <h2 style="color: #22c55e; font-size: 2.5rem; margin-bottom: 1rem;">🎉 Treino Finalizado!</h2>
+            
+            <div style="background: rgba(34, 197, 94, 0.1); padding: 1.5rem; border-radius: 15px; margin: 1.5rem 0;">
+              <h3 style="color: #ffffff; margin-bottom: 1rem;">⏱️ Tempo Total de Treino</h3>
+              <p style="color: #22c55e; font-size: 2rem; font-weight: bold; font-family: 'Orbitron', monospace;">${formatWorkoutTime(workoutDuration)}</p>
+            </div>
+            
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 15px; margin: 1.5rem 0;">
+              <h3 style="color: #ffffff; margin-bottom: 1rem;">📊 Progresso</h3>
+              <p style="color: #22c55e; font-size: 1.5rem; font-weight: bold;">${completedCount}/${totalSeries} séries (${completionPercentage}%)</p>
+            </div>
+            
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 15px; margin: 1.5rem 0;">
+              <h3 style="color: #ffffff; margin-bottom: 1rem;">💪 Músculos Trabalhados</h3>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                ${musclesWorked.map(muscle => 
+                  `<span style="background: #22c55e; color: #000; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem; font-weight: 500;">${muscle}</span>`
+                ).join('')}
+              </div>
+            </div>
+            
+            <button onclick="closeSummary()" style="
+              background: #22c55e;
+              color: #000;
+              border: none;
+              padding: 1rem 2rem;
+              border-radius: 10px;
+              font-size: 1.1rem;
+              font-weight: bold;
+              cursor: pointer;
+              margin-top: 1rem;
+              transition: all 0.3s ease;
+            " onmouseover="this.style.background='#16a34a'" onmouseout="this.style.background='#22c55e'">
+              Fechar Resumo
+            </button>
+          </div>
+        </div>
+      `;
+      
+      document.body.insertAdjacentHTML('beforeend', summaryHTML);
+    }
+
+    function closeSummary() {
+      const summary = document.querySelector('[style*="position: fixed"]');
+      if (summary) {
+        summary.remove();
+      }
+      // Reset do treino
+      completedSeries = {};
+      workoutStartTime = null;
+      workoutDuration = 0;
+      workoutPaused = false;
+      pausedTime = 0;
+      
+      // Reset display do cronômetro
+      const display = document.getElementById('workoutTimerDisplay');
+      if (display) {
+        display.textContent = '00:00';
+      }
+      
+      // Reset botão de pausar
+      const pauseBtn = document.getElementById('pauseWorkoutBtn');
+      if (pauseBtn) {
+        pauseBtn.textContent = '⏸️ Pausar Treino';
+        pauseBtn.style.background = '#f59e0b';
+      }
+      
+      // Resetar todas as séries visuais
+      document.querySelectorAll('.series-btn').forEach(btn => {
+        btn.classList.remove('completed');
+        const seriesNumber = btn.id.split('-').pop().split('-')[1];
+        btn.textContent = parseInt(seriesNumber) + 1;
+      });
+    }
+
+    let completedSeries = {};
+    let totalSeries = 18;
+    let pauseStartTime = 0;
+
+    function completeSeries(exerciseIndex, seriesIndex, restTime) {
+      const seriesId = `${exerciseIndex}-${seriesIndex}`;
+      const seriesBtn = document.getElementById(`series-${seriesId}`);
+      
+      if (!workoutStartTime && !completedSeries[seriesId]) {
+        startWorkoutTimer();
+      }
+      
+      if (completedSeries[seriesId]) {
+        // Desmarcar série
+        delete completedSeries[seriesId];
+        seriesBtn.classList.remove('completed');
+        seriesBtn.textContent = seriesIndex + 1;
+      } else {
+        // Marcar série como completa
+        completedSeries[seriesId] = true;
+        seriesBtn.classList.add('completed');
+        seriesBtn.textContent = '✓';
+        
+        // Iniciar timer de descanso se especificado
+        if (restTime > 0) {
+          startRestTimer(restTime);
+        }
+      }
+      
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const completedCount = Object.keys(completedSeries).length;
+      const progressPercentage = (completedCount / totalSeries) * 100;
+      
+      const progressBar = document.querySelector('.progress-fill');
+      const progressText = document.querySelector('.progress-text');
+      
+      if (progressBar) {
+        progressBar.style.width = progressPercentage + '%';
+      }
+      
+      if (progressText) {
+        progressText.textContent = `${completedCount}/${totalSeries} séries (${Math.round(progressPercentage)}%)`;
+      }
+    }
+
+    function startRestTimer(seconds) {
+      if (isRunning) {
+        clearInterval(timerInterval);
+      }
+      
+      currentTime = seconds;
+      isRunning = true;
+      
+      const timerDisplay = document.getElementById('timerDisplay');
+      const startBtn = document.getElementById('startBtn');
+      const pauseBtn = document.getElementById('pauseBtn');
+      const resetBtn = document.getElementById('resetBtn');
+      
+      if (startBtn) startBtn.style.display = 'none';
+      if (pauseBtn) pauseBtn.style.display = 'inline-block';
+      if (resetBtn) resetBtn.style.display = 'inline-block';
+      
+      timerInterval = setInterval(() => {
+        if (currentTime <= 0) {
+          clearInterval(timerInterval);
+          isRunning = false;
+          
+          // Notificação de fim do descanso
+          if ('Notification' in window && Notification.permission === 'granted') {
+            new Notification('⏰ Descanso finalizado!', {
+              body: 'Hora da próxima série!',
+              icon: '/favicon.ico'
+            });
+          }
+          
+          // Reset visual do timer
+          if (timerDisplay) timerDisplay.textContent = '00:00';
+          if (startBtn) startBtn.style.display = 'inline-block';
+          if (pauseBtn) pauseBtn.style.display = 'none';
+          if (resetBtn) resetBtn.style.display = 'none';
+          
+          // Som de alerta (se disponível)
+          try {
+            const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT');
+            audio.play().catch(() => {});
+          } catch (e) {}
+          
+          return;
+        }
+        
+        const minutes = Math.floor(currentTime / 60);
+        const seconds = currentTime % 60;
+        if (timerDisplay) {
+          timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        currentTime--;
+      }, 1000);
+    }
+
+    function startTimer(seconds) {
+      startRestTimer(seconds);
+    }
+
+    function pauseTimer() {
+      if (isRunning) {
+        clearInterval(timerInterval);
+        isRunning = false;
+        document.getElementById('pauseBtn').textContent = '▶️ Continuar';
+      } else {
+        startRestTimer(currentTime);
+        document.getElementById('pauseBtn').textContent = '⏸️ Pausar';
+      }
+    }
+
+    function resetTimer() {
+      clearInterval(timerInterval);
+      isRunning = false;
+      currentTime = 0;
+      
+      document.getElementById('timerDisplay').textContent = '00:00';
+      document.getElementById('startBtn').style.display = 'inline-block';
+      document.getElementById('pauseBtn').style.display = 'none';
+      document.getElementById('resetBtn').style.display = 'none';
+      document.getElementById('pauseBtn').textContent = '⏸️ Pausar';
+    }
+
+    function setQuickTime(seconds) {
+      document.getElementById('timeInput').value = seconds;
+    }
+
+    const exerciseData = {
+      agachamento: {
+        title: "Agachamento",
+        image: "/placeholder.svg?height=300&width=400",
+        muscles: ["Quadríceps", "Glúteos", "Panturrilhas", "Core"],
+        instructions: `
+          <ol>
+            <li>Fique em pé com os pés afastados na largura dos ombros</li>
+            <li>Mantenha o peito erguido e os braços estendidos à frente</li>
+            <li>Desça flexionando os joelhos como se fosse sentar em uma cadeira</li>
+            <li>Desça até as coxas ficarem paralelas ao chão</li>
+            <li>Suba empurrando pelos calcanhares até a posição inicial</li>
+          </ol>
+        `,
+        tips: `
+          <ul>
+            <li>Mantenha o peso nos calcanhares, não nas pontas dos pés</li>
+            <li>Não deixe os joelhos ultrapassarem a linha dos pés</li>
+            <li>Mantenha as costas retas durante todo o movimento</li>
+            <li>Respire inspirando na descida e expirando na subida</li>
+          </ul>
+        `,
+        errors: `
+          <ul>
+            <li>Inclinar o corpo muito para frente</li>
+            <li>Não descer o suficiente (movimento incompleto)</li>
+            <li>Joelhos colapsando para dentro</li>
+            <li>Levantar os calcanhares do chão</li>
+          </ul>
+        `
+      },
+      flexao: {
+        title: "Flexão de Braço (Joelhos Apoiados)",
+        image: "/placeholder.svg?height=300&width=400",
+        muscles: ["Peitoral", "Tríceps", "Deltoides", "Core"],
+        instructions: `
+          <ol>
+            <li>Apoie os joelhos no chão e as mãos um pouco mais largas que os ombros</li>
+            <li>Mantenha o corpo alinhado dos joelhos até a cabeça</li>
+            <li>Desça o peito em direção ao chão flexionando os braços</li>
+            <li>Pare quando o peito quase tocar o solo</li>
+            <li>Empurre o corpo de volta à posição inicial</li>
+          </ol>
+        `,
+        tips: `
+          <ul>
+            <li>Mantenha o core contraído durante todo o movimento</li>
+            <li>Não deixe o quadril subir ou descer demais</li>
+            <li>Controle a descida, não desça muito rápido</li>
+            <li>Expire ao empurrar para cima</li>
+          </ul>
+        `,
+        errors: `
+          <ul>
+            <li>Arquear demais as costas</li>
+            <li>Não descer o suficiente</li>
+            <li>Mãos muito próximas ou muito afastadas</li>
+            <li>Movimento muito rápido sem controle</li>
+          </ul>
+        `
+      },
+      abdominal: {
+        title: "Abdominal Crunch",
+        image: "/placeholder.svg?height=300&width=400",
+        muscles: ["Reto Abdominal", "Oblíquos", "Core"],
+        instructions: `
+          <ol>
+            <li>Deite de costas com joelhos flexionados e pés apoiados</li>
+            <li>Coloque as mãos atrás da cabeça sem entrelaçar os dedos</li>
+            <li>Contraia o abdômen e levante os ombros do chão</li>
+            <li>Mantenha o queixo afastado do peito</li>
+            <li>Desça controladamente até os ombros tocarem o chão</li>
+          </ol>
+        `,
+        tips: `
+          <ul>
+            <li>Foque na contração do abdômen, não no movimento do pescoço</li>
+            <li>Mantenha a lombar sempre apoiada no chão</li>
+            <li>Expire ao subir e inspire ao descer</li>
+            <li>Movimento deve ser lento e controlado</li>
+          </ul>
+        `,
+        errors: `
+          <ul>
+            <li>Puxar o pescoço com as mãos</li>
+            <li>Levantar muito alto (movimento desnecessário)</li>
+            <li>Fazer o movimento muito rápido</li>
+            <li>Não manter a contração abdominal</li>
+          </ul>
+        `
+      },
+      elevacao: {
+        title: "Elevação de Quadril",
+        image: "/placeholder.svg?height=300&width=400",
+        muscles: ["Glúteos", "Isquiotibiais", "Core", "Lombar"],
+        instructions: `
+          <ol>
+            <li>Deite de costas com joelhos flexionados e pés apoiados</li>
+            <li>Mantenha os braços ao lado do corpo para apoio</li>
+            <li>Contraia os glúteos e levante o quadril</li>
+            <li>Forme uma linha reta dos joelhos até os ombros</li>
+            <li>Desça controladamente até quase tocar o chão</li>
+          </ol>
+        `,
+        tips: `
+          <ul>
+            <li>Aperte bem os glúteos no topo do movimento</li>
+            <li>Não arqueie demais as costas</li>
+            <li>Mantenha os pés bem apoiados no chão</li>
+            <li>Expire ao subir o quadril</li>
+          </ul>
+        `,
+        errors: `
+          <ul>
+            <li>Deixar o quadril muito alto ou muito baixo</li>
+            <li>Relaxar o abdômen durante o exercício</li>
+            <li>Inclinar a cabeça para cima</li>
+            <li>Não manter o alinhamento corporal</li>
+          </ul>
+        `
+      },
+      prancha: {
+        title: "Prancha",
+        image: "/placeholder.svg?height=300&width=400",
+        muscles: ["Core", "Ombros", "Glúteos", "Pernas"],
+        instructions: `
+          <ol>
+            <li>Apoie os antebraços e pontas dos pés no chão</li>
+            <li>Mantenha o corpo reto como uma tábua</li>
+            <li>Cotovelos alinhados abaixo dos ombros</li>
+            <li>Contraia abdômen, glúteos e mantenha respiração normal</li>
+            <li>Segure a posição pelo tempo determinado</li>
+          </ol>
+        `,
+        tips: `
+          <ul>
+            <li>Imagine uma linha reta da cabeça aos pés</li>
+            <li>Não prenda a respiração, respire normalmente</li>
+            <li>Mantenha o pescoço neutro, olhando para baixo</li>
+            <li>Se ficar muito difícil, apoie os joelhos</li>
+          </ul>
+        `,
+        errors: `
+          <ul>
+            <li>Deixar o quadril muito alto ou muito baixo</li>
+            <li>Relaxar o abdômen durante o exercício</li>
+            <li>Inclinar a cabeça para cima</li>
+            <li>Não manter o alinhamento corporal</li>
+          </ul>
+        `
+      },
+      polichinelo: {
+        title: "Polichinelo",
+        image: "/placeholder.svg?height=300&width=400",
+        muscles: ["Cardio", "Panturrilhas", "Ombros", "Core"],
+        instructions: `
+          <ol>
+            <li>Fique em pé com pés juntos e braços ao lado do corpo</li>
+            <li>Salte abrindo as pernas e levantando os braços acima da cabeça</li>
+            <li>Salte novamente fechando as pernas e baixando os braços</li>
+            <li>Mantenha um ritmo constante e controlado</li>
+            <li>Aterrisse suavemente na ponta dos pés</li>
+          </ol>
+        `,
+        tips: `
+          <ul>
+            <li>Mantenha o core contraído durante todo o exercício</li>
+            <li>Aterrisse suavemente para proteger as articulações</li>
+            <li>Mantenha um ritmo que consiga sustentar</li>
+            <li>Respire de forma ritmada com o movimento</li>
+          </ul>
+        `,
+        errors: `
+          <ul>
+            <li>Aterrissar com impacto muito forte</li>
+            <li>Fazer movimento muito rápido perdendo controle</li>
+            <li>Não coordenar braços e pernas</li>
+            <li>Inclinar o corpo para frente</li>
+          </ul>
+        `
+      }
+    };
+
+    function showExerciseDetails(exerciseKey) {
+      const exercise = exerciseData[exerciseKey];
+      if (!exercise) return;
+
+      document.getElementById('modalTitle').textContent = exercise.title;
+      document.getElementById('modalImage').src = exercise.image;
+      document.getElementById('modalImage').alt = exercise.title;
+      
+      // Músculos trabalhados
+      const musclesContainer = document.getElementById('modalMuscles');
+      musclesContainer.innerHTML = '';
+      exercise.muscles.forEach((muscle, index) => {
+        const tag = document.createElement('span');
+        tag.className = `muscle-tag ${index === 0 ? 'primary' : 'secondary'}`;
+        tag.textContent = muscle;
+        musclesContainer.appendChild(tag);
+      });
+      
+      // Instruções
+      document.getElementById('modalInstructions').innerHTML = exercise.instructions;
+      
+      // Dicas
+      document.getElementById('modalTips').innerHTML = exercise.tips;
+      
+      // Erros comuns
+      document.getElementById('modalErrors').innerHTML = exercise.errors;
+      
+      // Mostrar modal
+      document.getElementById('exerciseModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('exerciseModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('exerciseModal');
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      createParticles();
+      
+      // Solicitar permissão para notificações
+      if ('Notification' in window && Notification.permission === 'default') {
+        Notification.requestPermission();
+      }
+      
+      // Inicializar displays
+      updateProgress();
+      updateWorkoutTimerDisplay();
+      
+      console.log("[v0] Aplicação inicializada com sucesso");
+    });
+
+  </script>
+</body>
+</html>

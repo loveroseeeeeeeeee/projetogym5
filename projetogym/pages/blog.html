@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - NEXON FITNESS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/blog.css">
+    <!-- Adicionando meta tags para SEO -->
+    <meta name="description" content="Blog NEXON FITNESS - Dicas de treino, nutrição e suplementação para maximizar seus resultados">
+    <meta name="keywords" content="fitness, treino, nutrição, suplementação, academia, exercícios">
+    <meta property="og:title" content="Blog NEXON FITNESS">
+    <meta property="og:description" content="Fique por dentro das últimas novidades e dicas de fitness">
+    <meta property="og:image" content="../images/blog-og.jpg">
+</head>
+<body>
+    <!-- Melhorando navbar com indicador de página ativa -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="nav-container">
+                <a href="../index.html" class="logo">
+                    <img src="../images/logo.png" alt="NEXON FITNESS Logo" width="40" height="40">
+                    <span class="logo-text">NEXON FITNESS</span>
+                </a>
+                <nav class="nav-menu">
+                    <a href="../index.html" class="nav-link">Início</a>
+                    <a href="../index.html#sobre" class="nav-link">Sobre</a>
+                    <a href="../index.html#planos" class="nav-link">Planos</a>
+                    <a href="blog.html" class="nav-link active">Blog</a>
+                    <a href="../index.html#contato" class="nav-link">Contato</a>
+                </nav>
+                <div class="nav-buttons">
+                    <a href="../index.html#login" class="btn btn-outline">Login</a>
+                    <a href="../pages/cadastro.html" class="btn btn-primary">Cadastre-se</a>
+                </div>
+                <!-- Adicionando botão de menu mobile -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="blog-page">
+        <div class="container">
+            <!-- Melhorando controles com ordenação -->
+            <div class="blog-controls">
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Pesquisar artigos..." id="searchInput" autocomplete="off">
+                        <button class="clear-search" id="clearSearch" style="display: none;">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="filter-sort-container">
+                    <div class="filter-container">
+                        <button class="filter-btn active" data-category="all">Todos</button>
+                        <button class="filter-btn" data-category="treino">Treino</button>
+                        <button class="filter-btn" data-category="nutricao">Nutrição</button>
+                        <button class="filter-btn" data-category="suplementacao">Suplementação</button>
+                        <button class="filter-btn" data-category="motivacao">Motivação</button>
+                    </div>
+                    <div class="sort-container">
+                        <select id="sortSelect" class="sort-select">
+                            <option value="newest">Mais Recentes</option>
+                            <option value="oldest">Mais Antigos</option>
+                            <option value="popular">Mais Populares</option>
+                            <option value="rating">Melhor Avaliados</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Melhorando header com contador dinâmico -->
+            <div class="blog-header">
+                <div class="blog-header-content">
+                    <h1 id="blogTitle">Blog NEXON</h1>
+                    <p>Fique por dentro das últimas novidades e dicas de fitness</p>
+                    <div class="blog-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="articlesCount">50+</span>
+                            <span class="stat-label">Artigos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="readersCount">10k+</span>
+                            <span class="stat-label">Leitores</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="categoriesCount">5</span>
+                            <span class="stat-label">Categorias</span>
+                        </div>
+                    </div>
+                    <!-- Adicionando newsletter signup -->
+                    <div class="newsletter-signup">
+                        <h3>Receba nossas novidades</h3>
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Seu melhor e-mail" id="newsletterEmail">
+                            <button class="btn btn-primary" id="subscribeBtn">
+                                <i class="fas fa-paper-plane"></i>
+                                Inscrever-se
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Melhorando grid com loading skeleton -->
+            <div class="blog-grid" id="blogGrid">
+                <article class="blog-card featured" data-category="treino" data-date="2024-03-20" data-views="1200" data-rating="4.8">
+                    <div class="blog-image">
+                        <img src="../images/blog/treino-casa.jpg" alt="Treino em casa" loading="lazy">
+                        <div class="blog-overlay">
+                            <span class="blog-category">Treino em Casa</span>
+                            <span class="featured-badge">Destaque</span>
+                            <div class="blog-actions">
+                                <button class="action-btn bookmark-btn" title="Salvar artigo" data-article="treino-casa">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                                <button class="action-btn share-btn" title="Compartilhar" data-article="treino-casa">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                                <button class="action-btn like-btn" title="Curtir" data-article="treino-casa">
+                                    <i class="far fa-heart"></i>
+                                    <span class="like-count">24</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date"><i class="fas fa-calendar"></i> 20/03/2024</span>
+                            <span class="blog-read-time"><i class="fas fa-clock"></i> 5 min</span>
+                            <span class="blog-views"><i class="fas fa-eye"></i> 1.2k</span>
+                            <span class="blog-author"><i class="fas fa-user"></i> Prof. Carlos</span>
+                        </div>
+                        <h3>Treino em Casa: Guia Completo para Iniciantes</h3>
+                        <p>Aprenda como montar uma rotina de exercícios eficiente sem sair de casa com equipamentos básicos e técnicas comprovadas.</p>
+                        <div class="blog-tags">
+                            <span class="tag">Iniciantes</span>
+                            <span class="tag">Casa</span>
+                            <span class="tag">Equipamentos</span>
+                        </div>
+                        <div class="blog-footer">
+                            <a href="blog-post.html?article=treino-casa" class="read-more">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <div class="blog-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-value">4.8</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="nutricao" data-date="2024-03-18" data-views="2100" data-rating="4.9">
+                    <div class="blog-image">
+                        <img src="../images/blog/nutricao.jpg" alt="Nutrição esportiva" loading="lazy">
+                        <div class="blog-overlay">
+                            <span class="blog-category">Nutrição</span>
+                            <div class="blog-actions">
+                                <button class="action-btn bookmark-btn" title="Salvar artigo" data-article="nutricao">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                                <button class="action-btn share-btn" title="Compartilhar" data-article="nutricao">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                                <button class="action-btn like-btn" title="Curtir" data-article="nutricao">
+                                    <i class="far fa-heart"></i>
+                                    <span class="like-count">42</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date"><i class="fas fa-calendar"></i> 18/03/2024</span>
+                            <span class="blog-read-time"><i class="fas fa-clock"></i> 8 min</span>
+                            <span class="blog-views"><i class="fas fa-eye"></i> 2.1k</span>
+                            <span class="blog-author"><i class="fas fa-user"></i> Dra. Ana</span>
+                        </div>
+                        <h3>Nutrição para Ganho de Massa Muscular</h3>
+                        <p>Descubra os alimentos essenciais e a dieta ideal para construir músculos de forma eficiente e saudável.</p>
+                        <div class="blog-tags">
+                            <span class="tag">Massa Muscular</span>
+                            <span class="tag">Dieta</span>
+                            <span class="tag">Proteínas</span>
+                        </div>
+                        <div class="blog-footer">
+                            <a href="blog-post.html?article=nutricao" class="read-more">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <div class="blog-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-value">4.9</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="suplementacao" data-date="2024-03-15" data-views="1800" data-rating="4.6">
+                    <div class="blog-image">
+                        <img src="../images/blog/suplementacao.jpg" alt="Suplementos para treino" loading="lazy">
+                        <div class="blog-overlay">
+                            <span class="blog-category">Suplementação</span>
+                            <div class="blog-actions">
+                                <button class="action-btn bookmark-btn" title="Salvar artigo" data-article="suplementacao">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                                <button class="action-btn share-btn" title="Compartilhar" data-article="suplementacao">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                                <button class="action-btn like-btn" title="Curtir" data-article="suplementacao">
+                                    <i class="far fa-heart"></i>
+                                    <span class="like-count">18</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date"><i class="fas fa-calendar"></i> 15/03/2024</span>
+                            <span class="blog-read-time"><i class="fas fa-clock"></i> 6 min</span>
+                            <span class="blog-views"><i class="fas fa-eye"></i> 1.8k</span>
+                            <span class="blog-author"><i class="fas fa-user"></i> Dr. Pedro</span>
+                        </div>
+                        <h3>Suplementos Essenciais para o Seu Treino</h3>
+                        <p>Descubra quais suplementos podem ajudar a maximizar seus resultados e como usá-los corretamente.</p>
+                        <div class="blog-tags">
+                            <span class="tag">Suplementos</span>
+                            <span class="tag">Performance</span>
+                            <span class="tag">Resultados</span>
+                        </div>
+                        <div class="blog-footer">
+                            <a href="blog-post.html?article=suplementacao" class="read-more">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <div class="blog-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-value">4.6</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Adicionando mais artigos para demonstrar variedade -->
+                <article class="blog-card" data-category="motivacao" data-date="2024-03-12" data-views="950" data-rating="4.7">
+                    <div class="blog-image">
+                        <img src="../images/blog/motivacao.jpg" alt="Motivação fitness" loading="lazy">
+                        <div class="blog-overlay">
+                            <span class="blog-category">Motivação</span>
+                            <div class="blog-actions">
+                                <button class="action-btn bookmark-btn" title="Salvar artigo" data-article="motivacao">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                                <button class="action-btn share-btn" title="Compartilhar" data-article="motivacao">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                                <button class="action-btn like-btn" title="Curtir" data-article="motivacao">
+                                    <i class="far fa-heart"></i>
+                                    <span class="like-count">31</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date"><i class="fas fa-calendar"></i> 12/03/2024</span>
+                            <span class="blog-read-time"><i class="fas fa-clock"></i> 4 min</span>
+                            <span class="blog-views"><i class="fas fa-eye"></i> 950</span>
+                            <span class="blog-author"><i class="fas fa-user"></i> Coach Maria</span>
+                        </div>
+                        <h3>Como Manter a Motivação nos Treinos</h3>
+                        <p>Estratégias psicológicas e práticas para manter a consistência e o foco nos seus objetivos fitness.</p>
+                        <div class="blog-tags">
+                            <span class="tag">Motivação</span>
+                            <span class="tag">Consistência</span>
+                            <span class="tag">Mindset</span>
+                        </div>
+                        <div class="blog-footer">
+                            <a href="blog-post.html?article=motivacao" class="read-more">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <div class="blog-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-value">4.7</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="treino" data-date="2024-03-10" data-views="1650" data-rating="4.5">
+                    <div class="blog-image">
+                        <img src="../images/blog/hiit.jpg" alt="Treino HIIT" loading="lazy">
+                        <div class="blog-overlay">
+                            <span class="blog-category">Treino HIIT</span>
+                            <div class="blog-actions">
+                                <button class="action-btn bookmark-btn" title="Salvar artigo" data-article="hiit">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                                <button class="action-btn share-btn" title="Compartilhar" data-article="hiit">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                                <button class="action-btn like-btn" title="Curtir" data-article="hiit">
+                                    <i class="far fa-heart"></i>
+                                    <span class="like-count">27</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date"><i class="fas fa-calendar"></i> 10/03/2024</span>
+                            <span class="blog-read-time"><i class="fas fa-clock"></i> 7 min</span>
+                            <span class="blog-views"><i class="fas fa-eye"></i> 1.6k</span>
+                            <span class="blog-author"><i class="fas fa-user"></i> Prof. João</span>
+                        </div>
+                        <h3>HIIT: Queime Gordura em Menos Tempo</h3>
+                        <p>Aprenda sobre o treinamento intervalado de alta intensidade e como ele pode revolucionar seus resultados.</p>
+                        <div class="blog-tags">
+                            <span class="tag">HIIT</span>
+                            <span class="tag">Queima de Gordura</span>
+                            <span class="tag">Cardio</span>
+                        </div>
+                        <div class="blog-footer">
+                            <a href="blog-post.html?article=hiit" class="read-more">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <div class="blog-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-value">4.5</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Melhorando estado de loading -->
+            <div class="loading-skeleton" id="loadingSkeleton" style="display: none;">
+                <div class="skeleton-card">
+                    <div class="skeleton-image"></div>
+                    <div class="skeleton-content">
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line short"></div>
+                        <div class="skeleton-line"></div>
+                    </div>
+                </div>
+                <div class="skeleton-card">
+                    <div class="skeleton-image"></div>
+                    <div class="skeleton-content">
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line short"></div>
+                        <div class="skeleton-line"></div>
+                    </div>
+                </div>
+                <div class="skeleton-card">
+                    <div class="skeleton-image"></div>
+                    <div class="skeleton-content">
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line short"></div>
+                        <div class="skeleton-line"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Melhorando estado de sem resultados -->
+            <div class="no-results" id="noResults" style="display: none;">
+                <div class="no-results-content">
+                    <div class="no-results-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Nenhum artigo encontrado</h3>
+                    <p>Tente ajustar sua pesquisa ou filtros para encontrar o conteúdo desejado</p>
+                    <button class="btn btn-primary" id="clearFilters">
+                        <i class="fas fa-refresh"></i>
+                        Limpar Filtros
+                    </button>
+                </div>
+            </div>
+
+            <!-- Melhorando paginação com mais informações -->
+            <div class="pagination-container">
+                <div class="pagination-info">
+                    <span>Mostrando <strong id="showingCount">6</strong> de <strong id="totalCount">24</strong> artigos</span>
+                </div>
+                <div class="pagination">
+                    <a href="#" class="page-btn prev-btn" id="prevBtn">
+                        <i class="fas fa-arrow-left"></i> Anterior
+                    </a>
+                    <a href="blog.html" class="page-btn active">1</a>
+                    <a href="blog-page2.html" class="page-btn">2</a>
+                    <a href="blog-page3.html" class="page-btn">3</a>
+                    <a href="blog-page4.html" class="page-btn">4</a>
+                    <a href="blog-page2.html" class="page-btn next-btn" id="nextBtn">
+                        Próximo <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Melhorando footer com links do blog -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-text">NEXON FITNESS</span>
+                        <p>Transformando vidas através do fitness</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Blog</h4>
+                    <ul class="footer-links">
+                        <li><a href="blog.html">Todos os Artigos</a></li>
+                        <li><a href="blog.html?category=treino">Treinos</a></li>
+                        <li><a href="blog.html?category=nutricao">Nutrição</a></li>
+                        <li><a href="blog.html?category=suplementacao">Suplementação</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Receba dicas exclusivas</p>
+                    <div class="footer-newsletter">
+                        <input type="email" placeholder="Seu e-mail">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NEXON FITNESS. Todos os direitos reservados.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">Contato</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Adicionando botão de voltar ao topo -->
+    <button class="back-to-top" id="backToTop" title="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/blog.js"></script>
+</body>
+</html>

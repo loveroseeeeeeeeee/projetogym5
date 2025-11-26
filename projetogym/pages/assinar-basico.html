@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plano Básico - NEXON FITNESS</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #181028;
+      color: #fff;
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    
+    /* Adicionando animações de partículas flutuantes */
+    .floating-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .particle {
+      position: absolute;
+      background: #bc13fe;
+      border-radius: 50%;
+      opacity: 0.1;
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .particle:nth-child(1) { width: 4px; height: 4px; left: 10%; animation-delay: 0s; }
+    .particle:nth-child(2) { width: 6px; height: 6px; left: 20%; animation-delay: 1s; }
+    .particle:nth-child(3) { width: 3px; height: 3px; left: 30%; animation-delay: 2s; }
+    .particle:nth-child(4) { width: 5px; height: 5px; left: 40%; animation-delay: 3s; }
+    .particle:nth-child(5) { width: 4px; height: 4px; left: 50%; animation-delay: 4s; }
+    .particle:nth-child(6) { width: 6px; height: 6px; left: 60%; animation-delay: 5s; }
+    .particle:nth-child(7) { width: 3px; height: 3px; left: 70%; animation-delay: 1.5s; }
+    .particle:nth-child(8) { width: 5px; height: 5px; left: 80%; animation-delay: 2.5s; }
+    .particle:nth-child(9) { width: 4px; height: 4px; left: 90%; animation-delay: 3.5s; }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.1; }
+      50% { opacity: 0.3; transform: translateY(50vh) rotate(180deg); }
+      90% { opacity: 0.1; }
+    }
+    
+    .basic-plan-container {
+      max-width: 600px;
+      margin: 3vh auto;
+      background: rgba(44,0,60,0.85);
+      border-radius: 18px;
+      box-shadow: 0 0 32px #bc13fe55;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      border: 1px solid #bc13fe;
+      min-height: 85vh;
+      position: relative;
+      z-index: 2;
+      /* Adicionando animação de entrada suave */
+      animation: slideInUp 0.8s ease-out;
+      backdrop-filter: blur(10px);
+    }
+    
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .basic-plan-title {
+      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: 2rem;
+      color: #bc13fe;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+      /* Adicionando animação de brilho no título */
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #bc13fe, 0 0 20px #bc13fe, 0 0 30px #bc13fe;
+      }
+      to {
+        text-shadow: 0 0 20px #bc13fe, 0 0 30px #bc13fe, 0 0 40px #bc13fe;
+      }
+    }
+    
+    .basic-plan-price {
+      font-size: 2.2rem;
+      color: #fff;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+      /* Adicionando animação de pulsação no preço */
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    .basic-plan-price span {
+      font-size: 1rem;
+      color: #bc13fe;
+      font-weight: normal;
+    }
+    .basic-plan-benefits {
+      text-align: left;
+      margin: 2.5rem 0 3rem 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .basic-plan-benefits li {
+      margin-bottom: 1.5rem;
+      font-size: 1.15rem;
+      position: relative;
+      padding-left: 1.7rem;
+      /* Adicionando animação de hover nos benefícios */
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .basic-plan-benefits li:hover {
+      transform: translateX(10px);
+      color: #bc13fe;
+    }
+    
+    .basic-plan-benefits li:hover::before {
+      transform: scale(1.2);
+      color: #fff;
+    }
+    
+    .basic-plan-benefits li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #bc13fe;
+      font-size: 1.2rem;
+      font-weight: bold;
+      /* Adicionando transição suave no ícone */
+      transition: all 0.3s ease;
+    }
+    
+    .payment-methods {
+      margin: 2.5rem 0;
+      padding: 2rem;
+      background: rgba(188, 19, 254, 0.1);
+      border-radius: 12px;
+      border: 1px solid rgba(188, 19, 254, 0.3);
+      /* Adicionando animação de entrada com delay */
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .payment-methods h3 {
+      color: #bc13fe;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .payment-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .payment-icon {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #fff;
+      border: 1px solid rgba(188, 19, 254, 0.5);
+      /* Adicionando animação hover nos ícones de pagamento */
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .payment-icon:hover {
+      background: rgba(188, 19, 254, 0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(188, 19, 254, 0.3);
+    }
+    
+    .legal-info {
+      margin-top: 2.5rem;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      border-left: 4px solid #bc13fe;
+      text-align: left;
+      /* Adicionando animação de entrada com delay maior */
+      animation: fadeInUp 1s ease-out 0.6s both;
+    }
+    .legal-info h4 {
+      color: #bc13fe;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .legal-info p {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      margin-bottom: 0.8rem;
+      color: #ccc;
+    }
+    .legal-info ul {
+      font-size: 0.85rem;
+      color: #ccc;
+      padding-left: 1.2rem;
+      margin: 0.5rem 0;
+    }
+    .legal-info li {
+      margin-bottom: 0.4rem;
+    }
+    
+    .btn-assinar {
+      background: #bc13fe;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 1rem 2.5rem;
+      box-shadow: 0 0 16px #bc13fe;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1rem;
+      position: relative;
+      overflow: hidden;
+      /* Melhorando animação do botão */
+      animation: fadeInUp 1s ease-out 0.9s both;
+    }
+    
+    .btn-assinar::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    .btn-assinar:hover::before {
+      left: 100%;
+    }
+    
+    .btn-assinar:hover {
+      background: #fff;
+      color: #bc13fe;
+      box-shadow: 0 0 32px #bc13fe;
+      transform: translateY(-2px);
+    }
+    
+    .back-home {
+      display: block;
+      margin: 2rem auto 0 auto;
+      color: #bc13fe;
+      text-decoration: underline;
+      font-size: 1rem;
+      /* Adicionando animação de entrada final */
+      animation: fadeInUp 1s ease-out 1.2s both;
+      transition: all 0.3s ease;
+    }
+    
+    .back-home:hover {
+      color: #fff;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <!-- Adicionando partículas flutuantes -->
+  <div class="floating-particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+  
+  <div class="basic-plan-container">
+    <div class="basic-plan-title">Plano Básico</div>
+    <div class="basic-plan-price">R$ 89,90 <span>/mês</span></div>
+    <ul class="basic-plan-benefits">
+      <li>Acesso à Academia</li>
+      <li>Área de Musculação</li>
+      <li>Aulas em Grupo</li>
+      <li>Suporte presencial</li>
+      <li>Ambiente seguro e climatizado</li>
+    </ul>
+    
+    <!-- Adicionando seção de métodos de pagamento -->
+    <div class="payment-methods">
+      <h3>💳 Métodos de Pagamento Aceitos</h3>
+      <div class="payment-icons">
+        <div class="payment-icon">💳 Mastercard</div>
+        <div class="payment-icon">📱 PIX</div>
+        <div class="payment-icon">🛒 Mercado Pago</div>
+      </div>
+      <p style="font-size: 0.9rem; color: #ccc; margin: 0;">Pagamento seguro e processamento instantâneo</p>
+    </div>
+    
+    <!-- Adicionando informações legais detalhadas -->
+    <div class="legal-info">
+      <h4>📋 Termos e Condições</h4>
+      <p><strong>Contrato de Prestação de Serviços:</strong></p>
+      <ul>
+        <li>Mensalidade de R$ 89,90 com vencimento todo dia 10</li>
+        <li>Carência de 30 dias para cancelamento após assinatura</li>
+        <li>Multa de 10% sobre o valor da mensalidade em caso de atraso</li>
+        <li>Acesso liberado mediante pagamento em dia</li>
+      </ul>
+      
+      <p><strong>Política de Cancelamento:</strong></p>
+      <ul>
+        <li>Solicitação deve ser feita com 30 dias de antecedência</li>
+        <li>Cancelamento pode ser feito presencialmente ou por e-mail</li>
+        <li>Não há devolução de valores já pagos</li>
+      </ul>
+      
+      <p><strong>Responsabilidades:</strong></p>
+      <ul>
+        <li>Cliente deve apresentar atestado médico para atividades físicas</li>
+        <li>Academia não se responsabiliza por objetos perdidos</li>
+        <li>Uso de equipamentos por conta e risco do usuário</li>
+        <li>Seguro de acidentes pessoais não incluso</li>
+      </ul>
+      
+      <p><strong>Dados e Privacidade:</strong></p>
+      <p>Seus dados pessoais serão tratados conforme a LGPD (Lei 13.709/2018). Utilizamos suas informações apenas para prestação dos serviços contratados e comunicações relacionadas à sua conta.</p>
+      
+      <p style="font-size: 0.8rem; margin-top: 1rem; color: #999;">
+        <strong>NEXON FITNESS LTDA</strong> - CNPJ: 12.345.678/0001-90<br>
+        Endereço: Rua das Academias, 123 - Centro - São Paulo/SP<br>
+        Contato: (11) 9999-9999 | contato@nexonfitness.com.br
+      </p>
+    </div>
+    
+    <a href="cadastro.html" class="btn-assinar">Assinar Agora</a>
+    
+    <a href="../index.html" class="back-home">Voltar para a Home</a>
+  </div>
+</body>
+</html>

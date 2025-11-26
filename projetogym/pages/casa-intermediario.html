@@ -1,0 +1,2366 @@
+  <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Treino em Casa - Intermediário | NEXON FITNESS</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+      color: #ddd;
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Partículas roxas */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #8b5cf6;
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+      opacity: 0.4;
+      box-shadow: 0 0 8px #8b5cf6;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.4; }
+      50% { transform: translateY(-20px) rotate(180deg); opacity: 0.7; }
+    }
+
+    .planilha-container {
+      max-width: 1100px;
+      margin: 3vh auto;
+      background: rgba(24, 17, 54, 0.95);
+      border-radius: 24px;
+      box-shadow: 0 0 40px rgba(139, 92, 246, 0.3), inset 0 1px 0 rgba(139, 92, 246, 0.2);
+      padding: 4rem 3.5rem;
+      text-align: center;
+      border: 2px solid #8b5cf6;
+      position: relative;
+      z-index: 2;
+      backdrop-filter: blur(10px);
+      animation: slideIn 0.8s ease-out;
+      color: #ddd;
+    }
+
+    /* Animação de entrada do container */
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .planilha-title {
+      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: 2.5rem;
+      color: #8b5cf6;
+      margin-bottom: 1rem;
+      letter-spacing: 3px;
+      text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    /* Efeito de brilho pulsante no título */
+    @keyframes glow {
+      from { text-shadow: 0 0 20px rgba(139, 92, 246, 0.5); }
+      to { text-shadow: 0 0 30px rgba(139, 92, 246, 0.7), 0 0 40px rgba(139, 92, 246, 0.3); }
+    }
+
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(139, 92, 246, 0.1));
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 1px solid rgba(124, 58, 237, 0.4);
+      line-height: 1.6;
+    }
+<<<<<<< SEARCH
+      color: #333;
+    }
+=======
+      color: #ddd;
+    }
+<<<<<<< SEARCH
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 15px;
+      font-size: 12px;
+      color: #e0e0e0;
+      transition: all 0.3s ease;
+    }
+=======
+      background: rgba(124, 58, 237, 0.2);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      border-radius: 15px;
+      font-size: 12px;
+      color: #ddd;
+      transition: all 0.3s ease;
+    }
+<<<<<<< SEARCH
+      background: #8b5cf6;
+      color: white;
+      border-color: #8b5cf6;
+      box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+    }
+=======
+      background: #8b5cf6;
+      color: white;
+      border-color: #8b5cf6;
+      box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
+    }
+<<<<<<< SEARCH
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border-radius: 16px;
+      padding: 1.5rem 0.8rem;
+      border-radius: 16px;
+    }
+=======
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(139, 92, 246, 0.1));
+      border-radius: 16px;
+      padding: 1.5rem 0.8rem;
+      border-radius: 16px;
+    }
+<<<<<<< SEARCH
+      color: #ffffff;
+      margin-bottom: 1rem;
+      letter-spacing: 3px;
+      text-shadow: 0 0 20px rgba(255,255,255,0.3);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+=======
+      color: #ddd;
+      margin-bottom: 1rem;
+      letter-spacing: 3px;
+      text-shadow: 0 0 20px #8b5cf6;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+<<<<<<< SEARCH
+      background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+      color: #fff;
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+=======
+      background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+      color: #ddd;
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Adicionando seção de estatísticas do treino */
+    .treino-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255,255,255,0.1);
+      border-color: #ffffff;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #8b5cf6;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: #ccc;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .treino-table {
+      width: 100%;
+      margin: 2.5rem 0;
+      border-collapse: collapse;
+      background: #000000;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    }
+
+    .treino-table th, .treino-table td {
+      padding: 1.2rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      text-align: left;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .treino-table th {
+      background: linear-gradient(135deg, #333333, #1a1a1a);
+      color: #fff;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* Efeitos hover nas linhas da tabela */
+    .treino-table tbody tr {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .treino-table tbody tr:hover {
+      background: rgba(255, 255, 255, 0.05);
+      transform: scale(1.02);
+    }
+
+    .treino-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Adicionando ícones para cada exercício */
+    .exercise-name {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .exercise-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      border: 2px solid #8b5cf6;
+      filter: grayscale(100%) contrast(1.2);
+      object-fit: cover;
+    }
+
+    /* Timer interativo para descanso */
+    .timer-section {
+      background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .timer-title {
+      font-size: 1.4rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .timer-display {
+      font-size: 3rem;
+      font-family: 'Orbitron', monospace;
+      color: #8b5cf6;
+      margin: 1rem 0;
+      text-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+    }
+
+    .timer-controls {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .timer-btn {
+      background: linear-gradient(135deg, #333333, #1a1a1a);
+      border: 2px solid #ffffff;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .timer-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+      background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+      color: #ffffff;
+      border-color: #8b5cf6;
+    }
+
+    .timer-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Seção de progresso do treino */
+    .progress-section {
+      background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .progress-title {
+      font-size: 1.4rem;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 12px;
+      background: #333;
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+      border-radius: 6px;
+      transition: width 0.5s ease;
+      width: 0%;
+      box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+    }
+
+    .exercise-checklist {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .exercise-group {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .exercise-group-title {
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .series-progress {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .series-indicator {
+      padding: 4px 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 15px;
+      font-size: 12px;
+      color: #e0e0e0;
+      transition: all 0.3s ease;
+    }
+
+    .series-indicator.completed {
+      background: #8b5cf6;
+      color: white;
+      border-color: #8b5cf6;
+      box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+    }
+
+    .obs {
+      margin-top: 2.5rem;
+      font-size: 1rem;
+      color: #ffffff;
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      line-height: 1.6;
+    }
+
+    .back-home {
+      display: inline-block;
+      margin: 2.5rem auto 0 auto;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 1rem 2rem;
+      border: 2px solid #ffffff;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .back-home:hover {
+      background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+      border-color: #8b5cf6;
+    }
+
+    /* Adicionando estilos para o modal de detalhes do exercício */
+    .exercise-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      backdrop-filter: blur(10px);
+    }
+
+    .modal-content {
+      background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+      margin: 5% auto;
+      padding: 2rem;
+      border: 2px solid #8b5cf6;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 600px;
+      position: relative;
+      animation: modalSlideIn 0.3s ease-out;
+      /* Adicionando altura máxima e scroll para o modal */
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    @keyframes modalSlideIn {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .close-modal {
+      color: #ffffff;
+      float: right;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .close-modal:hover {
+      color: #8b5cf6;
+      transform: scale(1.1);
+    }
+
+    .modal-exercise-image {
+      width: 100%;
+      max-width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin: 1rem auto;
+      display: block;
+      border: 2px solid #8b5cf6;
+    }
+
+    .modal-title {
+      font-size: 1.8rem;
+      color: #ffffff;
+      margin: 1rem 0;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .modal-section {
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      border-left: 4px solid #8b5cf6;
+    }
+
+    .modal-section h3 {
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .modal-section p, .modal-section ul {
+      color: #e0e0e0;
+      line-height: 1.6;
+      margin: 0.5rem 0;
+    }
+
+    .modal-section ul {
+      padding-left: 1.5rem;
+    }
+
+    .modal-section li {
+      margin: 0.3rem 0;
+    }
+
+    .muscle-groups {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Adicionando estilos para desenhos dos músculos */
+    /* Removendo estilos do diagrama de músculos */
+
+    .muscle-tag {
+      font-size: 0.8rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      min-width: fit-content;
+    }
+
+    .muscle-tag.primary {
+      /* Mudando cor do músculo alvo para roxo */
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(124, 58, 237, 0.1));
+      color: #8b5cf6;
+      border: 1px solid #8b5cf6;
+      box-shadow: 0 2px 4px rgba(139, 92, 246, 0.2);
+    }
+
+    .muscle-tag.secondary {
+      /* Mudando cor dos músculos secundários para roxo claro */
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(147, 51, 234, 0.1));
+      color: #a855f7;
+      border: 1px solid #a855f7;
+      box-shadow: 0 2px 4px rgba(168, 85, 247, 0.2);
+    }
+
+    /* Adicionando estilos para badges de intensidade e tags de músculos */
+    .intensity-badge {
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .intensity-badge.low {
+      background: rgba(34, 197, 94, 0.2);
+      color: #22c55e;
+      border: 1px solid #22c55e;
+    }
+
+    .intensity-badge.medium {
+      background: rgba(251, 191, 36, 0.2);
+      color: #fbbf24;
+      border: 1px solid #fbbf24;
+    }
+
+    .intensity-badge.high {
+      background: rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+      border: 1px solid #ef4444;
+    }
+
+    .series-btn.completed {
+      /* Mudando cor de fundo para roxo quando completado */
+      background: #8b5cf6 !important;
+      color: white !important;
+      border-color: #8b5cf6 !important;
+      box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+    }
+
+    .series-btn.completed:hover {
+      background: #7c3aed !important;
+      border-color: #7c3aed !important;
+      box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .planilha-container {
+        margin: 1vh auto;
+        padding: 2rem 1rem;
+        max-width: 98%;
+        border-radius: 20px;
+      }
+      
+      .planilha-title {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+      }
+      
+      .planilha-desc {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+      }
+      
+      .treino-table {
+        font-size: 0.85rem;
+        margin: 0 -0.5rem;
+      }
+      
+      .treino-table th, .treino-table td {
+        font-size: 0.85rem;
+        padding: 0.8rem 0.4rem;
+      }
+      
+      .exercise-icon {
+        width: 32px;
+        height: 32px;
+      }
+      
+      .series-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+        margin: 0 2px;
+      }
+      
+      .timer-display {
+        font-size: 2.2rem;
+        padding: 1rem;
+      }
+      
+      .treino-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .stat-card {
+        padding: 1rem 0.8rem;
+      }
+      
+      .modal-content {
+        width: 95%;
+        margin: 5% auto;
+        padding: 1.5rem;
+        max-height: 90vh;
+        border-radius: 16px;
+      }
+      
+      .modal-title {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+      }
+      
+      .timer-controls {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      
+      .timer-btn {
+        width: 100%;
+        max-width: 180px;
+        padding: 0.8rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Melhorando ainda mais para telas muito pequenas */
+    @media (max-width: 480px) {
+      .planilha-container {
+        margin: 0.5vh auto;
+        padding: 1.5rem 0.8rem;
+        border-radius: 16px;
+      }
+      
+      .planilha-title {
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      .planilha-desc {
+        font-size: 0.85rem;
+        margin-bottom: 1.2rem;
+      }
+      
+      .treino-stats {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+        margin-bottom: 1.2rem;
+      }
+      
+      .stat-card {
+        padding: 0.8rem;
+      }
+      
+      .stat-value {
+        font-size: 1.6rem;
+      }
+      
+      .stat-label {
+        font-size: 0.8rem;
+      }
+      
+      .treino-table {
+        font-size: 0.8rem;
+        margin: 0 -0.3rem;
+      }
+      
+      .treino-table th, .treino-table td {
+        padding: 0.6rem 0.2rem;
+        font-size: 0.8rem;
+      }
+      
+      .exercise-icon {
+        width: 28px;
+        height: 28px;
+      }
+      
+      .series-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.75rem;
+        margin: 0 1px;
+        border-radius: 6px;
+      }
+      
+      .timer-display {
+        font-size: 1.8rem;
+        padding: 0.8rem;
+      }
+      
+      .modal-content {
+        width: 98%;
+        margin: 2% auto;
+        padding: 1.2rem;
+        max-height: 95vh;
+        border-radius: 12px;
+      }
+      
+      .modal-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      .timer-btn {
+        padding: 0.7rem;
+        font-size: 0.85rem;
+      }
+    }
+=======
+    .planilha-desc {
+      font-size: 1.2rem;
+      color: #a78bfa;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+
+    /* Adicionando seção de estatísticas do treino */
+    .treino-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(139, 92, 246, 0.1));
+      border: 1px solid rgba(124, 58, 237, 0.4);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+      border-color: #8b5cf6;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #8b5cf6;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: #ddd;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .treino-table {
+      width: 100%;
+      margin: 2.5rem 0;
+      border-collapse: collapse;
+      background: #000000;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    }
+
+    .treino-table th, .treino-table td {
+      padding: 1.2rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      text-align: left;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .treino-table th {
+      background: linear-gradient(135deg, #333333, #1a1a1a);
+      color: #fff;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* Efeitos hover nas linhas da tabela */
+    .treino-table tbody tr {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .treino-table tbody tr:hover {
+      background: rgba(255, 255, 255, 0.05);
+      transform: scale(1.02);
+    }
+
+    .treino-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Adicionando ícones para cada exercício */
+    .exercise-name {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .exercise-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      border: 2px solid #8b5cf6;
+      filter: grayscale(100%) contrast(1.2);
+      object-fit: cover;
+    }
+
+    /* Timer interativo para descanso */
+    .timer-section {
+      background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .timer-title {
+      font-size: 1.4rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .timer-display {
+      font-size: 3rem;
+      font-family: 'Orbitron', monospace;
+      color: #8b5cf6;
+      margin: 1rem 0;
+      text-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+    }
+
+    .timer-controls {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .timer-btn {
+      background: linear-gradient(135deg, #333333, #1a1a1a);
+      border: 2px solid #ffffff;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .timer-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+      background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+      color: #ffffff;
+      border-color: #8b5cf6;
+    }
+
+    .timer-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Seção de progresso do treino */
+    .progress-section {
+      background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .progress-title {
+      font-size: 1.4rem;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 12px;
+      background: #333;
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+      border-radius: 6px;
+      transition: width 0.5s ease;
+      width: 0%;
+      box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+    }
+
+    .exercise-checklist {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .exercise-group {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .exercise-group-title {
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .series-progress {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .series-indicator {
+      padding: 4px 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 15px;
+      font-size: 12px;
+      color: #e0e0e0;
+      transition: all 0.3s ease;
+    }
+
+    .series-indicator.completed {
+      background: #8b5cf6;
+      color: white;
+      border-color: #8b5cf6;
+      box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+    }
+
+    .obs {
+      margin-top: 2.5rem;
+      font-size: 1rem;
+      color: #ffffff;
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(139, 92, 246, 0.1));
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 1px solid rgba(124, 58, 237, 0.4);
+      line-height: 1.6;
+    }
+
+    .back-home {
+      display: inline-block;
+      margin: 2.5rem auto 0 auto;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 1rem 2rem;
+      border: 2px solid #ffffff;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .back-home:hover {
+      background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+      border-color: #8b5cf6;
+    }
+
+    /* Adicionando estilos para o modal de detalhes do exercício */
+    .exercise-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      backdrop-filter: blur(10px);
+    }
+
+    .modal-content {
+      background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+      margin: 5% auto;
+      padding: 2rem;
+      border: 2px solid #8b5cf6;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 600px;
+      position: relative;
+      animation: modalSlideIn 0.3s ease-out;
+      /* Adicionando altura máxima e scroll para o modal */
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    @keyframes modalSlideIn {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .close-modal {
+      color: #ffffff;
+      float: right;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .close-modal:hover {
+      color: #8b5cf6;
+      transform: scale(1.1);
+    }
+
+    .modal-exercise-image {
+      width: 100%;
+      max-width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin: 1rem auto;
+      display: block;
+      border: 2px solid #8b5cf6;
+    }
+
+    .modal-title {
+      font-size: 1.8rem;
+      color: #ffffff;
+      margin: 1rem 0;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .modal-section {
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      border-left: 4px solid #8b5cf6;
+    }
+
+    .modal-section h3 {
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .modal-section p, .modal-section ul {
+      color: #e0e0e0;
+=======
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(139, 92, 246, 0.1));
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 1px solid rgba(124, 58, 237, 0.4);
+      line-height: 1.6;
+    }
+<<<<<<< SEARCH
+      color: #333;
+    }
+=======
+      color: #ddd;
+    }
+<<<<<<< SEARCH
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 15px;
+      font-size: 12px;
+      color: #e0e0e0;
+      transition: all 0.3s ease;
+    }
+=======
+      background: rgba(124, 58, 237, 0.2);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      border-radius: 15px;
+      font-size: 12px;
+      color: #ddd;
+      transition: all 0.3s ease;
+    }
+<<<<<<< SEARCH
+      background: #8b5cf6;
+      color: white;
+      border-color: #8b5cf6;
+      box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+    }
+=======
+      background: #8b5cf6;
+      color: white;
+      border-color: #8b5cf6;
+      box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
+    }
+<<<<<<< SEARCH
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border-radius: 16px;
+      padding: 1.5rem 0.8rem;
+      border-radius: 16px;
+    }
+=======
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(139, 92, 246, 0.1));
+      border-radius: 16px;
+      padding: 1.5rem 0.8rem;
+      border-radius: 16px;
+    }
+<<<<<<< SEARCH
+      color: #ffffff;
+      margin-bottom: 1rem;
+      letter-spacing: 3px;
+      text-shadow: 0 0 20px rgba(255,255,255,0.3);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+=======
+      color: #ddd;
+      margin-bottom: 1rem;
+      letter-spacing: 3px;
+      text-shadow: 0 0 20px #8b5cf6;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+<<<<<<< SEARCH
+      background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+      color: #fff;
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+=======
+      background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+      color: #ddd;
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Adicionando seção de estatísticas do treino */
+    .treino-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255,255,255,0.1);
+      border-color: #ffffff;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #8b5cf6;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: #ccc;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .treino-table {
+      width: 100%;
+      margin: 2.5rem 0;
+      border-collapse: collapse;
+      background: #000000;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    }
+
+    .treino-table th, .treino-table td {
+      padding: 1.2rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      text-align: left;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .treino-table th {
+      background: linear-gradient(135deg, #333333, #1a1a1a);
+      color: #fff;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* Efeitos hover nas linhas da tabela */
+    .treino-table tbody tr {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .treino-table tbody tr:hover {
+      background: rgba(255, 255, 255, 0.05);
+      transform: scale(1.02);
+    }
+
+    .treino-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Adicionando ícones para cada exercício */
+    .exercise-name {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .exercise-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      border: 2px solid #8b5cf6;
+      filter: grayscale(100%) contrast(1.2);
+      object-fit: cover;
+    }
+
+    /* Timer interativo para descanso */
+    .timer-section {
+      background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .timer-title {
+      font-size: 1.4rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .timer-display {
+      font-size: 3rem;
+      font-family: 'Orbitron', monospace;
+      color: #8b5cf6;
+      margin: 1rem 0;
+      text-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+    }
+
+    .timer-controls {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .timer-btn {
+      background: linear-gradient(135deg, #333333, #1a1a1a);
+      border: 2px solid #ffffff;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .timer-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+      background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+      color: #ffffff;
+      border-color: #8b5cf6;
+    }
+
+    .timer-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Seção de progresso do treino */
+    .progress-section {
+      background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .progress-title {
+      font-size: 1.4rem;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 12px;
+      background: #333;
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+      border-radius: 6px;
+      transition: width 0.5s ease;
+      width: 0%;
+      box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+    }
+
+    .exercise-checklist {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .exercise-group {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .exercise-group-title {
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .series-progress {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .series-indicator {
+      padding: 4px 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 15px;
+      font-size: 12px;
+      color: #e0e0e0;
+      transition: all 0.3s ease;
+    }
+
+    .series-indicator.completed {
+      background: #8b5cf6;
+      color: white;
+      border-color: #8b5cf6;
+      box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+    }
+
+    .obs {
+      margin-top: 2.5rem;
+      font-size: 1rem;
+      color: #ffffff;
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      line-height: 1.6;
+    }
+
+    .back-home {
+      display: inline-block;
+      margin: 2.5rem auto 0 auto;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 1rem 2rem;
+      border: 2px solid #ffffff;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .back-home:hover {
+      background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+      border-color: #8b5cf6;
+    }
+
+    /* Adicionando estilos para o modal de detalhes do exercício */
+    .exercise-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      backdrop-filter: blur(10px);
+    }
+
+    .modal-content {
+      background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+      margin: 5% auto;
+      padding: 2rem;
+      border: 2px solid #8b5cf6;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 600px;
+      position: relative;
+      animation: modalSlideIn 0.3s ease-out;
+      /* Adicionando altura máxima e scroll para o modal */
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    @keyframes modalSlideIn {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .close-modal {
+      color: #ffffff;
+      float: right;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .close-modal:hover {
+      color: #8b5cf6;
+      transform: scale(1.1);
+    }
+
+    .modal-exercise-image {
+      width: 100%;
+      max-width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin: 1rem auto;
+      display: block;
+      border: 2px solid #8b5cf6;
+    }
+
+    .modal-title {
+      font-size: 1.8rem;
+      color: #ffffff;
+      margin: 1rem 0;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .modal-section {
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      border-left: 4px solid #8b5cf6;
+    }
+
+    .modal-section h3 {
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .modal-section p, .modal-section ul {
+      color: #e0e0e0;
+      line-height: 1.6;
+      margin: 0.5rem 0;
+    }
+
+    .modal-section ul {
+      padding-left: 1.5rem;
+    }
+
+    .modal-section li {
+      margin: 0.3rem 0;
+    }
+
+    .muscle-groups {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Adicionando estilos para desenhos dos músculos */
+    /* Removendo estilos do diagrama de músculos */
+
+    .muscle-tag {
+      font-size: 0.8rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      min-width: fit-content;
+    }
+
+    .muscle-tag.primary {
+      /* Mudando cor do músculo alvo para roxo */
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(124, 58, 237, 0.1));
+      color: #8b5cf6;
+      border: 1px solid #8b5cf6;
+      box-shadow: 0 2px 4px rgba(139, 92, 246, 0.2);
+    }
+
+    .muscle-tag.secondary {
+      /* Mudando cor dos músculos secundários para roxo claro */
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(147, 51, 234, 0.1));
+      color: #a855f7;
+      border: 1px solid #a855f7;
+      box-shadow: 0 2px 4px rgba(168, 85, 247, 0.2);
+    }
+
+    /* Adicionando estilos para badges de intensidade e tags de músculos */
+    .intensity-badge {
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .intensity-badge.low {
+      background: rgba(34, 197, 94, 0.2);
+      color: #22c55e;
+      border: 1px solid #22c55e;
+    }
+
+    .intensity-badge.medium {
+      background: rgba(251, 191, 36, 0.2);
+      color: #fbbf24;
+      border: 1px solid #fbbf24;
+    }
+
+    .intensity-badge.high {
+      background: rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+      border: 1px solid #ef4444;
+    }
+
+    .series-btn.completed {
+      /* Mudando cor de fundo para roxo quando completado */
+      background: #8b5cf6 !important;
+      color: white !important;
+      border-color: #8b5cf6 !important;
+      box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+    }
+
+    .series-btn.completed:hover {
+      background: #7c3aed !important;
+      border-color: #7c3aed !important;
+      box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .planilha-container {
+        margin: 1vh auto;
+        padding: 2rem 1rem;
+        max-width: 98%;
+        border-radius: 20px;
+      }
+      
+      .planilha-title {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+      }
+      
+      .planilha-desc {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+      }
+      
+      .treino-table {
+        font-size: 0.85rem;
+        margin: 0 -0.5rem;
+      }
+      
+      .treino-table th, .treino-table td {
+        font-size: 0.85rem;
+        padding: 0.8rem 0.4rem;
+      }
+      
+      .exercise-icon {
+        width: 32px;
+        height: 32px;
+      }
+      
+      .series-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+        margin: 0 2px;
+      }
+      
+      .timer-display {
+        font-size: 2.2rem;
+        padding: 1rem;
+      }
+      
+      .treino-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .stat-card {
+        padding: 1rem 0.8rem;
+      }
+      
+      .modal-content {
+        width: 95%;
+        margin: 5% auto;
+        padding: 1.5rem;
+        max-height: 90vh;
+        border-radius: 16px;
+      }
+      
+      .modal-title {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+      }
+      
+      .timer-controls {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      
+      .timer-btn {
+        width: 100%;
+        max-width: 180px;
+        padding: 0.8rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Melhorando ainda mais para telas muito pequenas */
+    @media (max-width: 480px) {
+      .planilha-container {
+        margin: 0.5vh auto;
+        padding: 1.5rem 0.8rem;
+        border-radius: 16px;
+      }
+      
+      .planilha-title {
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      .planilha-desc {
+        font-size: 0.85rem;
+        margin-bottom: 1.2rem;
+      }
+      
+      .treino-stats {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+        margin-bottom: 1.2rem;
+      }
+      
+      .stat-card {
+        padding: 0.8rem;
+      }
+      
+      .stat-value {
+        font-size: 1.6rem;
+      }
+      
+      .stat-label {
+        font-size: 0.8rem;
+      }
+      
+      .treino-table {
+        font-size: 0.8rem;
+        margin: 0 -0.3rem;
+      }
+      
+      .treino-table th, .treino-table td {
+        padding: 0.6rem 0.2rem;
+        font-size: 0.8rem;
+      }
+      
+      .exercise-icon {
+        width: 28px;
+        height: 28px;
+      }
+      
+      .series-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.75rem;
+        margin: 0 1px;
+        border-radius: 6px;
+      }
+      
+      .timer-display {
+        font-size: 1.8rem;
+        padding: 0.8rem;
+      }
+      
+      .modal-content {
+        width: 98%;
+        margin: 2% auto;
+        padding: 1.2rem;
+        max-height: 95vh;
+        border-radius: 12px;
+      }
+      
+      .modal-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      .timer-btn {
+        padding: 0.7rem;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Adicionando partículas de fundo -->
+  <div class="particles" id="particles"></div>
+
+  <div class="planilha-container">
+    <div class="planilha-title">Treino em Casa - Intermediário</div>
+    <div class="planilha-desc">
+      Para quem já tem experiência e busca mais intensidade.<br>
+      Exercícios desafiadores com peso corporal avançado!
+    </div>
+
+    <!-- Adicionando estatísticas do treino -->
+    <div class="treino-stats">
+      <div class="stat-card">
+        <div class="stat-number">8</div>
+        <div class="stat-label">Exercícios</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">24</div>
+        <div class="stat-label">Séries Totais</div>
+      </div>
+    </div>
+
+    <!-- Removendo seção de resumo do treino -->
+    <table class="treino-table">
+      <thead>
+        <tr>
+          <th>Exercício</th>
+          <th>Músculos</th>
+          <th>Séries</th>
+          <th>Repetições</th>
+          <th>Descanso</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr onclick="showExerciseDetails('agachamento')">
+          <td>
+            <div class="exercise-name">
+              <img src="/placeholder.svg?height=40&width=40" alt="Agachamento" class="exercise-icon">
+              <div>Agachamento</div>
+            </div>
+          </td>
+          <!-- Adicionando coluna de músculos trabalhados -->
+          <td>
+            <div class="muscle-tags">
+              <span class="muscle-tag primary">Quadríceps</span>
+              <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.2rem;">
+                <span class="muscle-tag secondary">Glúteos</span>
+                <span class="muscle-tag secondary">Panturrilha</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="series-controls">
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(0, 0, 60)" id="series-0-0">1</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(0, 1, 60)" id="series-0-1">2</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(0, 2, 60)" id="series-0-2">3</button>
+            </div>
+          </td>
+          <td>15</td>
+          <td>60s</td>
+        </tr>
+        <tr onclick="showExerciseDetails('flexao')">
+          <td>
+            <div class="exercise-name">
+              <img src="/placeholder.svg?height=40&width=40" alt="Flexão de Braço" class="exercise-icon">
+              <div>Flexão de Braço (completa)</div>
+            </div>
+          </td>
+          <td>
+            <div class="muscle-tags">
+              <span class="muscle-tag primary">Peitorais</span>
+              <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.2rem;">
+                <span class="muscle-tag secondary">Tríceps</span>
+                <span class="muscle-tag secondary">Ombros</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="series-controls">
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(1, 0, 60)" id="series-1-0">1</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(1, 1, 60)" id="series-1-1">2</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(1, 2, 60)" id="series-1-2">3</button>
+            </div>
+          </td>
+          <td>12</td>
+          <td>60s</td>
+        </tr>
+        <tr onclick="showExerciseDetails('abdominal')">
+          <td>
+            <div class="exercise-name">
+              <img src="/placeholder.svg?height=40&width=40" alt="Abdominal Crunch" class="exercise-icon">
+              <div>Abdominal Crunch</div>
+            </div>
+          </td>
+          <td>
+            <div class="muscle-tags">
+              <span class="muscle-tag primary">Abdômen</span>
+              <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.2rem;">
+                <span class="muscle-tag secondary">Core</span>
+                <span class="muscle-tag secondary">Oblíquos</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="series-controls">
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(2, 0, 45)" id="series-2-0">1</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(2, 1, 45)" id="series-2-1">2</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(2, 2, 45)" id="series-2-2">3</button>
+            </div>
+          </td>
+          <td>20</td>
+          <td>45s</td>
+        </tr>
+        <tr onclick="showExerciseDetails('elevacao')">
+          <td>
+            <div class="exercise-name">
+              <img src="/placeholder.svg?height=40&width=40" alt="Elevação de Quadril" class="exercise-icon">
+              <div>Elevação de Quadril (única perna)</div>
+            </div>
+          </td>
+          <td>
+            <div class="muscle-tags">
+              <span class="muscle-tag primary">Glúteos</span>
+              <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.2rem;">
+                <span class="muscle-tag secondary">Posterior</span>
+                <span class="muscle-tag secondary">Core</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="series-controls">
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(3, 0, 45)" id="series-3-0">1</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(3, 1, 45)" id="series-3-1">2</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(3, 2, 45)" id="series-3-2">3</button>
+            </div>
+          </td>
+          <td>12</td>
+          <td>45s</td>
+        </tr>
+        <tr onclick="showExerciseDetails('prancha')">
+          <td>
+            <div class="exercise-name">
+              <img src="/placeholder.svg?height=40&width=40" alt="Prancha" class="exercise-icon">
+              <div>Prancha</div>
+            </div>
+          </td>
+          <td>
+            <div class="muscle-tags">
+              <span class="muscle-tag primary">Core</span>
+              <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.2rem;">
+                <span class="muscle-tag secondary">Ombros</span>
+                <span class="muscle-tag secondary">Braços</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="series-controls">
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(4, 0, 45)" id="series-4-0">1</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(4, 1, 45)" id="series-4-1">2</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(4, 2, 45)" id="series-4-2">3</button>
+            </div>
+          </td>
+          <td>30s</td>
+          <td>45s</td>
+        </tr>
+        <tr onclick="showExerciseDetails('burpee')">
+          <td>
+            <div class="exercise-name">
+              <img src="/placeholder.svg?height=40&width=40" alt="Burpee" class="exercise-icon">
+              <div>Burpee</div>
+            </div>
+          </td>
+          <td>
+            <div class="muscle-tags">
+              <span class="muscle-tag primary">Corpo Inteiro</span>
+              <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.2rem;">
+                <span class="muscle-tag secondary">Cardio</span>
+                <span class="muscle-tag secondary">Força</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="series-controls">
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(5, 0, 60)" id="series-5-0">1</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(5, 1, 60)" id="series-5-1">2</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(5, 2, 60)" id="series-5-2">3</button>
+            </div>
+          </td>
+          <td>10</td>
+          <td>60s</td>
+        </tr>
+        <tr onclick="showExerciseDetails('mountain')">
+          <td>
+            <div class="exercise-name">
+              <img src="/placeholder.svg?height=40&width=40" alt="Mountain Climber" class="exercise-icon">
+              <div>Mountain Climber</div>
+            </div>
+          </td>
+          <td>
+            <div class="muscle-tags">
+              <span class="muscle-tag primary">Core</span>
+              <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.2rem;">
+                <span class="muscle-tag secondary">Cardio</span>
+                <span class="muscle-tag secondary">Pernas</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="series-controls">
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(6, 0, 45)" id="series-6-0">1</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(6, 1, 45)" id="series-6-1">2</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(6, 2, 45)" id="series-6-2">3</button>
+            </div>
+          </td>
+          <td>20</td>
+          <td>45s</td>
+        </tr>
+        <tr onclick="showExerciseDetails('polichinelo')">
+          <td>
+            <div class="exercise-name">
+              <img src="/placeholder.svg?height=40&width=40" alt="Polichinelo" class="exercise-icon">
+              <div>Polichinelo</div>
+            </div>
+          </td>
+          <td>
+            <div class="muscle-tags">
+              <span class="muscle-tag primary">Cardio</span>
+              <div style="display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.2rem;">
+                <span class="muscle-tag secondary">Pernas</span>
+                <span class="muscle-tag secondary">Braços</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="series-controls">
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(7, 0, 45)" id="series-7-0">1</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(7, 1, 45)" id="series-7-1">2</button>
+              <button class="series-btn" onclick="event.stopPropagation(); completeSeries(7, 2, 45)" id="series-7-2">3</button>
+            </div>
+          </td>
+          <td>30</td>
+          <td>45s</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Timer interativo para descanso -->
+    <div class="timer-section">
+      <div class="timer-title">⏱️ Timer de Descanso</div>
+      <div class="timer-display" id="timerDisplay">00:60</div>
+      <div class="timer-controls">
+        <button class="timer-btn" onclick="startTimer(60)">Iniciar (60s)</button>
+        <button class="timer-btn" onclick="startTimer(90)">1:30 Min</button>
+        <button class="timer-btn" onclick="startTimer(120)">2 Min</button>
+        <button class="timer-btn" onclick="pauseTimer()">Pausar/Retomar</button>
+        <button class="timer-btn" onclick="resetTimer()">Reset</button>
+      </div>
+    </div>
+
+
+
+    <div class="obs">
+      <strong>💡 Dicas para o Treino Intermediário:</strong><br>
+      • Mantenha uma hidratação adequada durante o treino<br>
+      • Foque na execução correta dos movimentos para evitar lesões<br>
+      • Respire profundamente e mantenha o ritmo constante<br>
+      • Se sentir dor, pare imediatamente e consulte um profissional<br>
+      • Este treino é mais intenso - ajuste conforme sua condição física
+    </div>
+
+    <a href="../index.html" class="back-home">← Voltar ao Início</a>
+
+    <!-- Modal de detalhes do exercício -->
+    <div id="exerciseModal" class="exercise-modal">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img src="" alt="" class="modal-exercise-image" id="modalImage">
+        <h2 class="modal-title" id="modalTitle"></h2>
+
+        <div class="modal-section">
+          <h3>🎯 Músculos Trabalhados</h3>
+          <div class="muscle-groups" id="modalMuscles"></div>
+        </div>
+
+        <div class="modal-section">
+          <h3>📝 Execução</h3>
+          <p id="modalExecution"></p>
+        </div>
+
+        <div class="modal-section">
+          <h3>⚠️ Cuidados</h3>
+          <ul id="modalCares"></ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>🔥 Dicas</h3>
+          <ul id="modalTips"></ul>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Dados dos exercícios
+      const exerciseData = {
+        agachamento: {
+          title: "Agachamento",
+          image: "../img/exercicio-agachamento.webp",
+          muscles: ["Quadríceps", "Glúteos", "Panturrilha"],
+          execution: "Fique em pé com os pés na largura dos ombros. Desça lentamente como se fosse sentar em uma cadeira, mantendo os joelhos alinhados com os pés. Volte à posição inicial empurrando os calcanhares.",
+          cares: ["Mantenha os joelhos alinhados com os pés", "Não deixe os joelhos ultrapassarem a linha dos pés", "Mantenha as costas retas"],
+          tips: ["Desça até formar um ângulo de 90 graus nos joelhos", "Respire profundamente durante o movimento", "Mantenha o core contraído"]
+        },
+        flexao: {
+          title: "Flexão de Braço (Completa)",
+          image: "../img/fexao-de-braco-fechada.webp",
+          muscles: ["Peitorais", "Tríceps", "Ombros"],
+          execution: "Comece na posição de prancha com as mãos um pouco mais largas que os ombros. Desça o corpo até o peito quase tocar o chão, mantendo os cotovelos em 45 graus. Empurre para cima voltando à posição inicial.",
+          cares: ["Mantenha o corpo em linha reta", "Não arqueie as costas", "Não deixe os quadris caírem"],
+          tips: ["Mantenha o core contraído", "Respire durante o movimento", "Comece com joelhos no chão se necessário"]
+        },
+        abdominal: {
+          title: "Abdominal Crunch",
+          image: "../img/placeholder.svg",
+          muscles: ["Abdômen", "Core", "Oblíquos"],
+          execution: "Deite de costas com os joelhos dobrados. Coloque as mãos atrás da cabeça. Levante os ombros do chão contraindo o abdômen, mantendo as costas baixas no chão.",
+          cares: ["Não puxe a cabeça com as mãos", "Mantenha as costas baixas no chão", "Não levante todo o corpo"],
+          tips: ["Exale ao subir", "Mantenha o movimento controlado", "Sinta a contração do abdômen"]
+        },
+        elevacao: {
+          title: "Elevação de Quadril (Única Perna)",
+          image: "../img/placeholder.svg",
+          muscles: ["Glúteos", "Posterior", "Core"],
+          execution: "Deite de costas com os joelhos dobrados. Levante uma perna estendida. Empurre os calcanhares para levantar os quadris, contraindo os glúteos. Volte lentamente.",
+          cares: ["Mantenha o core contraído", "Não arqueie as costas", "Mantenha o movimento controlado"],
+          tips: ["Sinta a contração dos glúteos", "Mantenha a perna elevada alinhada", "Respire profundamente"]
+        },
+        prancha: {
+          title: "Prancha",
+          image: "../img/placeholder.svg",
+          muscles: ["Core", "Ombros", "Braços"],
+          execution: "Fique na posição de flexão com os antebraços no chão. Mantenha o corpo em linha reta dos calcanhares à cabeça. Contraia o core e segure a posição.",
+          cares: ["Mantenha o corpo em linha reta", "Não arqueie as costas", "Não deixe os quadris caírem"],
+          tips: ["Respire profundamente", "Mantenha o olhar para frente", "Comece com menos tempo se necessário"]
+        },
+        burpee: {
+          title: "Burpee",
+          image: "../img/placeholder.svg",
+          muscles: ["Corpo Inteiro", "Cardio", "Força"],
+          execution: "Fique em pé, agache e coloque as mãos no chão. Chute os pés para trás para posição de prancha. Faça uma flexão. Volte os pés e pule para cima.",
+          cares: ["Mantenha o movimento controlado", "Aqueça bem antes", "Pare se sentir tontura"],
+          tips: ["Mantenha o ritmo constante", "Respire durante o movimento", "Modifique removendo o pulo se necessário"]
+        },
+        mountain: {
+          title: "Mountain Climber",
+          image: "../img/placeholder.svg",
+          muscles: ["Core", "Cardio", "Pernas"],
+          execution: "Na posição de prancha, leve um joelho em direção ao peito alternadamente, como se estivesse correndo no lugar. Mantenha o core contraído.",
+          cares: ["Mantenha o corpo estável", "Não mova os quadris", "Respire ritmadamente"],
+          tips: ["Mantenha velocidade constante", "Contraia o core", "Mantenha os ombros sobre as mãos"]
+        },
+        polichinelo: {
+          title: "Polichinelo",
+          image: "../img/placeholder.svg",
+          muscles: ["Cardio", "Pernas", "Braços"],
+          execution: "Fique em pé com os pés juntos e braços ao lado do corpo. Pule abrindo os pés e levantando os braços acima da cabeça. Volte à posição inicial.",
+          cares: ["Aqueça bem as articulações", "Pule suavemente", "Mantenha o equilíbrio"],
+          tips: ["Mantenha o ritmo constante", "Respire profundamente", "Mantenha os joelhos levemente flexionados"]
+        }
+      };
+
+      // Variáveis globais
+      let timerInterval;
+      let timerSeconds = 60;
+      let isTimerRunning = false;
+      let completedSeries = 0;
+      const totalSeries = 24;
+
+      // Função para criar partículas de fundo
+      function createParticles() {
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          particle.style.left = Math.random() * 100 + '%';
+          particle.style.animationDelay = Math.random() * 6 + 's';
+          particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+          particlesContainer.appendChild(particle);
+        }
+      }
+
+      // Função para mostrar detalhes do exercício
+      function showExerciseDetails(exerciseKey) {
+        const exercise = exerciseData[exerciseKey];
+        if (!exercise) return;
+
+        document.getElementById('modalTitle').textContent = exercise.title;
+        document.getElementById('modalImage').src = exercise.image;
+        document.getElementById('modalImage').alt = exercise.title;
+        document.getElementById('modalExecution').textContent = exercise.execution;
+
+        // Preencher músculos
+        const musclesContainer = document.getElementById('modalMuscles');
+        musclesContainer.innerHTML = '';
+        exercise.muscles.forEach((muscle, index) => {
+          const tag = document.createElement('span');
+          tag.className = index === 0 ? 'muscle-tag primary' : 'muscle-tag secondary';
+          tag.textContent = muscle;
+          musclesContainer.appendChild(tag);
+        });
+
+        // Preencher cuidados
+        const caresList = document.getElementById('modalCares');
+        caresList.innerHTML = '';
+        exercise.cares.forEach(care => {
+          const li = document.createElement('li');
+          li.textContent = care;
+          caresList.appendChild(li);
+        });
+
+        // Preencher dicas
+        const tipsList = document.getElementById('modalTips');
+        tipsList.innerHTML = '';
+        exercise.tips.forEach(tip => {
+          const li = document.createElement('li');
+          li.textContent = tip;
+          tipsList.appendChild(li);
+        });
+
+        document.getElementById('exerciseModal').style.display = 'block';
+      }
+
+      // Função para fechar modal
+      function closeModal() {
+        document.getElementById('exerciseModal').style.display = 'none';
+      }
+
+      // Função para completar série
+      function completeSeries(exerciseIndex, seriesIndex, restTime) {
+        const button = document.getElementById(`series-${exerciseIndex}-${seriesIndex}`);
+        if (button.classList.contains('completed')) {
+          // Desmarcar série
+          button.classList.remove('completed');
+          completedSeries--;
+        } else {
+          // Marcar série como completa
+          button.classList.add('completed');
+          completedSeries++;
+          // Iniciar timer de descanso
+          startTimer(restTime);
+        }
+        updateProgress();
+      }
+
+      // Função para atualizar progresso
+      function updateProgress() {
+        const progress = (completedSeries / totalSeries) * 100;
+        document.getElementById('progressFill').style.width = progress + '%';
+
+        // Atualizar checklist de exercícios
+        const checklist = document.getElementById('exerciseChecklist');
+        checklist.innerHTML = '';
+
+        Object.keys(exerciseData).forEach((key, index) => {
+          const exerciseDiv = document.createElement('div');
+          exerciseDiv.className = 'exercise-group';
+
+          const title = document.createElement('div');
+          title.className = 'exercise-group-title';
+          title.textContent = exerciseData[key].title;
+
+          const seriesDiv = document.createElement('div');
+          seriesDiv.className = 'series-progress';
+
+          for (let i = 0; i < 3; i++) {
+            const indicator = document.createElement('div');
+            indicator.className = 'series-indicator';
+            if (document.getElementById(`series-${index}-${i}`).classList.contains('completed')) {
+              indicator.classList.add('completed');
+            }
+            indicator.textContent = i + 1;
+            seriesDiv.appendChild(indicator);
+          }
+
+          exerciseDiv.appendChild(title);
+          exerciseDiv.appendChild(seriesDiv);
+          checklist.appendChild(exerciseDiv);
+        });
+      }
+
+      // Funções do timer
+      function startTimer(seconds) {
+        if (isTimerRunning) return;
+        timerSeconds = seconds;
+        isTimerRunning = true;
+        updateTimerDisplay();
+
+        timerInterval = setInterval(() => {
+          timerSeconds--;
+          updateTimerDisplay();
+
+          if (timerSeconds <= 0) {
+            clearInterval(timerInterval);
+            isTimerRunning = false;
+            alert('⏰ Tempo de descanso acabou! Próxima série!');
+          }
+        }, 1000);
+      }
+
+      function pauseTimer() {
+        if (isTimerRunning) {
+          clearInterval(timerInterval);
+          isTimerRunning = false;
+        } else {
+          startTimer(timerSeconds);
+        }
+      }
+
+      function resetTimer() {
+        clearInterval(timerInterval);
+        timerSeconds = 60;
+        isTimerRunning = false;
+        updateTimerDisplay();
+      }
+
+      function updateTimerDisplay() {
+        const minutes = Math.floor(timerSeconds / 60);
+        const seconds = timerSeconds % 60;
+        document.getElementById('timerDisplay').textContent =
+          `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      }
+
+      // Fechar modal ao clicar fora
+      window.onclick = function(event) {
+        const modal = document.getElementById('exerciseModal');
+        if (event.target === modal) {
+          closeModal();
+        }
+      }
+
+      // Inicialização
+      document.addEventListener('DOMContentLoaded', function() {
+        createParticles();
+        updateProgress();
+        updateTimerDisplay();
+      });
+    </script>
+  </div>
+</body>
+</html>

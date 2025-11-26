@@ -1,0 +1,91 @@
+/* forms.css */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    max-width: 600px; /* Define uma largura máxima para o formulário */
+    margin: 0 auto; /* Centraliza o formulário */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: var(--space-sm);
+    border: 2px solid var(--color-gray-700);
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-gray-800);
+    color: var(--color-white);
+    font-size: 1rem;
+    font-family: 'Audiowide', sans-serif;
+    transition: var(--transition-normal);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona sombra interna */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 10px var(--color-primary); /* Efeito neon ao focar */
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: vertical; /* Permite redimensionar apenas na vertical */
+    min-height: 150px; /* Define uma altura mínima */
+}
+
+.contact-form button {
+    align-self: flex-start;
+    padding: var(--space-sm) var(--space-lg);
+    border: none;
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+    font-family: 'Audiowide', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adiciona sombra */
+}
+
+.contact-form button:hover {
+    background-color: var(--color-secondary);
+    box-shadow: var(--neon-secondary), 0 8px 15px rgba(123, 104, 238, 0.5); /* Efeito neon mais forte */
+    transform: translateY(-3px); /* Adiciona um efeito de elevação */
+}
+
+/* sections.css */
+.contact-section .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    max-width: 400px; /* Define uma largura máxima para as informações de contato */
+    margin: 0 auto; /* Centraliza as informações */
+}
+
+.contact-section .info-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+    border: 1px solid var(--color-gray-700);
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-gray-800);
+    transition: var(--transition-fast);
+}
+
+.contact-section .info-item:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 10px var(--color-primary); /* Efeito neon ao passar o mouse */
+}
+
+.contact-section .info-item i {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+.contact-section .info-item p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--color-white);
+    font-family: 'Audiowide', sans-serif;
+}

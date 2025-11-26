@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plano Premium - NEXON FITNESS</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #181028;
+      color: #fff;
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .premium-plan-container {
+      /* Expandindo dimensões do card premium */
+      max-width: 650px;
+      width: 90%;
+      min-height: 85vh;
+      margin: 2vh auto;
+      background: rgba(44,0,60,0.92);
+      border-radius: 24px;
+      box-shadow: 0 0 40px #ffd70088, 0 0 80px #bc13fe44;
+      padding: 3.5rem 3rem;
+      text-align: center;
+      border: 3px solid #ffd700;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Adicionando efeito de brilho premium */
+    .premium-plan-container::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #ffd700, #bc13fe, #ffd700);
+      border-radius: 24px;
+      z-index: -1;
+      animation: premium-glow 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes premium-glow {
+      0% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+    
+    .premium-plan-title {
+      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: 2.8rem;
+      color: #ffd700;
+      margin-bottom: 1.5rem;
+      letter-spacing: 3px;
+      text-shadow: 0 0 20px #ffd70088;
+      position: relative;
+    }
+    
+    /* Adicionando badge premium */
+    .premium-badge {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      background: linear-gradient(135deg, #ffd700, #ffed4e);
+      color: #181028;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+    }
+    
+    .premium-plan-price {
+      font-size: 3rem;
+      color: #fff;
+      margin-bottom: 2rem;
+      font-weight: bold;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+    .premium-plan-price span {
+      font-size: 1.2rem;
+      color: #ffd700;
+      font-weight: normal;
+    }
+    .premium-plan-benefits {
+      text-align: left;
+      margin: 3rem 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .premium-plan-benefits li {
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      position: relative;
+      padding-left: 2rem;
+      line-height: 1.4;
+    }
+    .premium-plan-benefits li::before {
+      content: "★";
+      position: absolute;
+      left: 0;
+      color: #ffd700;
+      font-size: 1.4rem;
+      font-weight: bold;
+      text-shadow: 0 0 8px #ffd70088;
+    }
+    
+    /* Adicionando seção de métodos de pagamento */
+    .payment-methods {
+      margin: 3rem 0;
+      padding: 2rem;
+      background: rgba(255, 215, 0, 0.1);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 215, 0, 0.3);
+    }
+    
+    .payment-title {
+      font-size: 1.3rem;
+      color: #ffd700;
+      margin-bottom: 1.5rem;
+      font-weight: bold;
+    }
+    
+    .payment-options {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .payment-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      transition: all 0.3s ease;
+      min-width: 120px;
+    }
+    
+    .payment-option:hover {
+      background: rgba(255, 215, 0, 0.1);
+      border-color: #ffd700;
+      transform: translateY(-2px);
+    }
+    
+    .payment-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .payment-name {
+      font-size: 0.9rem;
+      color: #fff;
+      font-weight: 500;
+    }
+    
+    .btn-assinar {
+      background: linear-gradient(135deg, #ffd700, #ffed4e);
+      color: #181028;
+      border: none;
+      border-radius: 35px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 1.2rem 3rem;
+      box-shadow: 0 0 20px #ffd700, 0 8px 16px rgba(255, 215, 0, 0.3);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      margin: 2rem 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .btn-assinar:hover {
+      background: linear-gradient(135deg, #fff, #ffd700);
+      color: #181028;
+      box-shadow: 0 0 30px #ffd700, 0 12px 24px rgba(255, 215, 0, 0.4);
+      transform: translateY(-3px);
+    }
+    
+    /* Adicionando seção legal */
+    .legal-section {
+      margin-top: 3rem;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      text-align: left;
+    }
+    
+    .legal-title {
+      font-size: 1.2rem;
+      color: #ffd700;
+      margin-bottom: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+    }
+    
+    .legal-content {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+    
+    .legal-content h4 {
+      color: #ffd700;
+      margin: 1.5rem 0 0.8rem 0;
+      font-size: 1rem;
+    }
+    
+    .legal-content ul {
+      margin: 0.5rem 0;
+      padding-left: 1.5rem;
+    }
+    
+    .legal-content li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .back-home {
+      display: block;
+      margin: 2rem auto 0 auto;
+      color: #ffd700;
+      text-decoration: underline;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    
+    .back-home:hover {
+      color: #fff;
+    }
+    
+    @media (max-width: 768px) {
+      .premium-plan-container {
+        max-width: 95%;
+        padding: 2.5rem 1.5rem;
+        min-height: auto;
+      }
+      
+      .premium-plan-title {
+        font-size: 2.2rem;
+      }
+      
+      .premium-plan-price {
+        font-size: 2.5rem;
+      }
+      
+      .payment-options {
+        gap: 1rem;
+      }
+      
+      .payment-option {
+        min-width: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="premium-plan-container">
+    <!-- Adicionando badge premium -->
+    <div class="premium-badge">Premium</div>
+    
+    <div class="premium-plan-title">Plano Premium</div>
+    <div class="premium-plan-price">R$ 149,90 <span>/mês</span></div>
+    <ul class="premium-plan-benefits">
+      <li>Todos os benefícios do Básico</li>
+      <li>Acompanhamento Nutricional Personalizado</li>
+      <li>Personal Trainer Exclusivo (2x por semana)</li>
+      <li>Acesso ao App Premium com IA</li>
+      <li>Consultoria Online 24/7</li>
+      <li>Descontos de até 30% em Suplementos</li>
+      <li>Plano Alimentar Individualizado</li>
+      <li>Acesso VIP a Workshops e Eventos</li>
+    </ul>
+    
+    <!-- Adicionando métodos de pagamento -->
+    <div class="payment-methods">
+      <div class="payment-title">Métodos de Pagamento Aceitos</div>
+      <div class="payment-options">
+        <div class="payment-option">
+          <div class="payment-icon">💳</div>
+          <div class="payment-name">Mastercard</div>
+        </div>
+        <div class="payment-option">
+          <div class="payment-icon">📱</div>
+          <div class="payment-name">PIX</div>
+        </div>
+        <div class="payment-option">
+          <div class="payment-icon">🛒</div>
+          <div class="payment-name">Mercado Pago</div>
+        </div>
+      </div>
+    </div>
+    
+    <a href="cadastro.html" class="btn-assinar">Assinar Agora</a>
+    
+    <!-- Adicionando seção legal completa -->
+    <div class="legal-section">
+      <div class="legal-title">Termos e Condições</div>
+      <div class="legal-content">
+        <h4>📋 Contrato de Assinatura</h4>
+        <ul>
+          <li>Assinatura mensal com renovação automática</li>
+          <li>Cobrança realizada todo dia 15 do mês</li>
+          <li>Primeiro mês com 7 dias de garantia</li>
+          <li>Acesso imediato após confirmação do pagamento</li>
+        </ul>
+        
+        <h4>❌ Política de Cancelamento</h4>
+        <ul>
+          <li>Cancelamento a qualquer momento sem multa</li>
+          <li>Acesso mantido até o final do período pago</li>
+          <li>Reembolso integral em até 7 dias (primeiro mês)</li>
+          <li>Cancelamento via app, site ou atendimento</li>
+        </ul>
+        
+        <h4>⚖️ Responsabilidades</h4>
+        <ul>
+          <li>Nexon Fitness: Fornecer todos os serviços descritos</li>
+          <li>Cliente: Manter dados atualizados e usar responsavelmente</li>
+          <li>Suporte técnico disponível 24/7</li>
+          <li>Garantia de qualidade dos serviços premium</li>
+        </ul>
+        
+        <h4>🔒 Privacidade e Segurança</h4>
+        <ul>
+          <li>Dados protegidos conforme LGPD</li>
+          <li>Pagamentos processados com criptografia SSL</li>
+          <li>Informações pessoais nunca compartilhadas</li>
+          <li>Política de privacidade disponível em nexonfitness.com/privacidade</li>
+        </ul>
+        
+        <p style="margin-top: 1.5rem; font-size: 0.8rem; color: #999;">
+          <strong>NEXON FITNESS LTDA</strong> - CNPJ: 12.345.678/0001-90<br>
+          Endereço: Rua das Academias, 123 - São Paulo/SP<br>
+          SAC: 0800-123-4567 | contato@nexonfitness.com
+        </p>
+      </div>
+    </div>
+    
+    <a href="../index.html" class="back-home">Voltar para a Home</a>
+  </div>
+</body>
+</html>

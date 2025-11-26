@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plano Black - NEXON FITNESS</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .black-plan-container {
+      max-width: 750px; /* aumentou de 700px para 750px */
+      width: 95%;
+      min-height: 95vh; /* aumentou de 90vh para 95vh */
+      margin: 2vh auto;
+      background: linear-gradient(135deg, #0a0a0a 0%, #181028 70%, #bc13fe 100%); /* melhorou o gradiente com mais profundidade */
+      border-radius: 32px; /* aumentou de 28px para 32px */
+      box-shadow: 0 0 80px #bc13fe88, 0 0 160px #000a, inset 0 1px 0 rgba(255,255,255,0.1); /* adicionou sombras mais intensas e brilho interno */
+      padding: 4.5rem 3.5rem; /* aumentou padding de 4rem 3rem para 4.5rem 3.5rem */
+      text-align: center;
+      border: 3px solid #bc13fe;
+      position: relative;
+      overflow: hidden;
+    }
+    .black-plan-container::before {
+      content: '';
+      position: absolute;
+      top: -3px; /* aumentou de -2px para -3px */
+      left: -3px; /* aumentou de -2px para -3px */
+      right: -3px; /* aumentou de -2px para -3px */
+      bottom: -3px; /* aumentou de -2px para -3px */
+      background: linear-gradient(45deg, #bc13fe, #000, #bc13fe, #fff, #bc13fe); /* adicionou mais cores ao gradiente da borda */
+      border-radius: 32px; /* ajustou para combinar com o container */
+      z-index: -1;
+      animation: black-glow 2.5s ease-in-out infinite alternate; /* diminuiu de 3s para 2.5s */
+    }
+    /* adicionou novo efeito de partículas flutuantes */
+    .black-plan-container::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 30%, rgba(188, 19, 254, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 70%, rgba(188, 19, 254, 0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 30%);
+      border-radius: 32px;
+      pointer-events: none;
+      animation: floating-particles 4s ease-in-out infinite alternate;
+    }
+    /* adicionou animação para as partículas */
+    @keyframes floating-particles {
+      0% { opacity: 0.3; transform: scale(1); }
+      100% { opacity: 0.6; transform: scale(1.02); }
+    }
+    @keyframes black-glow {
+      0% { opacity: 0.8; transform: scale(1); } /* adicionou transform scale */
+      100% { opacity: 1; transform: scale(1.01); } /* adicionou transform scale */
+    }
+    .black-plan-title {
+      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: 3.5rem; /* aumentou de 3rem para 3.5rem */
+      color: #bc13fe;
+      margin-bottom: 2rem; /* aumentou de 1.5rem para 2rem */
+      letter-spacing: 5px; /* aumentou de 4px para 5px */
+      text-shadow: 0 0 30px #bc13fe88, 0 0 60px #bc13fe44; /* adicionou segunda sombra */
+      position: relative;
+      background: linear-gradient(45deg, #bc13fe, #fff, #bc13fe); /* adicionou gradiente no texto */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .black-badge {
+      position: absolute;
+      top: -20px; /* ajustou de -18px para -20px */
+      right: -20px; /* ajustou de -18px para -20px */
+      background: linear-gradient(135deg, #bc13fe, #000, #bc13fe); /* adicionou mais cor ao gradiente */
+      color: #fff;
+      padding: 12px 26px; /* aumentou padding de 10px 22px para 12px 26px */
+      border-radius: 25px; /* aumentou de 22px para 25px */
+      font-size: 1rem; /* aumentou de 0.9rem para 1rem */
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      box-shadow: 0 6px 20px #bc13fe44, 0 0 30px #bc13fe33; /* melhorou as sombras */
+      border: 2px solid #fff;
+      animation: badge-pulse 3s ease-in-out infinite; /* adicionou animação */
+    }
+    /* adicionou animação para o badge */
+    @keyframes badge-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .black-plan-price {
+      font-size: 3.8rem; /* aumentou de 3.2rem para 3.8rem */
+      color: #fff;
+      margin-bottom: 2.5rem; /* aumentou de 2rem para 2.5rem */
+      font-weight: bold;
+      text-shadow: 0 0 20px #bc13fe55, 0 0 40px #bc13fe33; /* melhorou as sombras do texto */
+      background: linear-gradient(45deg, #fff, #bc13fe, #fff); /* adicionou gradiente */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .black-plan-benefits {
+      text-align: left;
+      margin: 3rem 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .black-plan-benefits li {
+      margin-bottom: 1.8rem; /* aumentou de 1.5rem para 1.8rem */
+      font-size: 1.3rem; /* aumentou de 1.2rem para 1.3rem */
+      position: relative;
+      padding-left: 2.5rem; /* aumentou de 2.2rem para 2.5rem */
+      line-height: 1.5; /* aumentou de 1.4 para 1.5 */
+      transition: all 0.3s ease; /* adicionou transição */
+    }
+    /* adicionou efeito hover nos benefícios */
+    .black-plan-benefits li:hover {
+      color: #bc13fe;
+      transform: translateX(5px);
+    }
+    .black-plan-benefits li::before {
+      content: "⬤";
+      position: absolute;
+      left: 0;
+      color: #bc13fe;
+      font-size: 1.5rem; /* aumentou de 1.3rem para 1.5rem */
+      font-weight: bold;
+      text-shadow: 0 0 12px #bc13fe88; /* aumentou a sombra */
+      animation: benefit-glow 2s ease-in-out infinite alternate; /* adicionou animação */
+    }
+    /* adicionou animação para os bullets dos benefícios */
+    @keyframes benefit-glow {
+      0% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+    .payment-methods {
+      margin: 3.5rem 0; /* aumentou de 3rem para 3.5rem */
+      padding: 2.5rem; /* aumentou de 2rem para 2.5rem */
+      background: rgba(188, 19, 254, 0.12); /* aumentou opacidade de 0.08 para 0.12 */
+      border-radius: 20px; /* aumentou de 16px para 20px */
+      border: 2px solid rgba(188, 19, 254, 0.4); /* aumentou espessura e opacidade da borda */
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 8px 32px rgba(188, 19, 254, 0.2); /* adicionou sombras */
+    }
+    .payment-title {
+      font-size: 1.4rem; /* aumentou de 1.3rem para 1.4rem */
+      color: #bc13fe;
+      margin-bottom: 2rem; /* aumentou de 1.5rem para 2rem */
+      font-weight: bold;
+      text-shadow: 0 0 10px #bc13fe44; /* adicionou sombra */
+    }
+    .payment-options {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem; /* aumentou de 2rem para 2.5rem */
+      flex-wrap: wrap;
+    }
+    .payment-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem; /* aumentou de 1rem para 1.5rem */
+      background: rgba(255, 255, 255, 0.08); /* aumentou opacidade de 0.05 para 0.08 */
+      border-radius: 16px; /* aumentou de 12px para 16px */
+      border: 1px solid rgba(188, 19, 254, 0.3); /* aumentou opacidade da borda */
+      transition: all 0.3s ease;
+      min-width: 140px; /* aumentou de 120px para 140px */
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3); /* adicionou sombra */
+    }
+    .payment-option:hover {
+      background: rgba(188, 19, 254, 0.15); /* aumentou opacidade do hover */
+      border-color: #bc13fe;
+      transform: translateY(-4px); /* aumentou de -2px para -4px */
+      box-shadow: 0 8px 24px rgba(188, 19, 254, 0.3); /* melhorou sombra do hover */
+    }
+    .payment-icon {
+      font-size: 2.5rem; /* aumentou de 2rem para 2.5rem */
+      margin-bottom: 0.8rem; /* aumentou de 0.5rem para 0.8rem */
+    }
+    .payment-name {
+      font-size: 1rem; /* aumentou de 0.9rem para 1rem */
+      color: #fff;
+      font-weight: 600; /* aumentou de 500 para 600 */
+    }
+    .btn-assinar {
+      background: linear-gradient(135deg, #bc13fe, #000, #bc13fe); /* melhorou o gradiente */
+      color: #fff;
+      border: none;
+      border-radius: 40px; /* aumentou de 35px para 40px */
+      font-size: 1.4rem; /* aumentou de 1.3rem para 1.4rem */
+      font-weight: bold;
+      cursor: pointer;
+      padding: 1.4rem 3.5rem; /* aumentou padding */
+      box-shadow: 0 0 30px #bc13fe, 0 12px 24px rgba(188, 19, 254, 0.4), inset 0 1px 0 rgba(255,255,255,0.2); /* melhorou sombras */
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      margin: 2.5rem 0; /* aumentou de 2rem para 2.5rem */
+      text-transform: uppercase;
+      letter-spacing: 2px; /* aumentou de 1px para 2px */
+      position: relative;
+      overflow: hidden;
+    }
+    /* adicionou efeito de brilho no botão */
+    .btn-assinar::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      transform: rotate(45deg);
+      transition: all 0.6s ease;
+      opacity: 0;
+    }
+    .btn-assinar:hover::before {
+      animation: shine 0.6s ease-in-out;
+    }
+    @keyframes shine {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; }
+    }
+    .btn-assinar:hover {
+      background: linear-gradient(135deg, #fff, #bc13fe, #fff); /* melhorou gradiente do hover */
+      color: #000; /* mudou cor do texto no hover */
+      box-shadow: 0 0 40px #bc13fe, 0 16px 32px rgba(188, 19, 254, 0.5); /* melhorou sombras do hover */
+      transform: translateY(-4px) scale(1.02); /* adicionou scale no hover */
+    }
+    .legal-section {
+      margin-top: 4rem; /* aumentou de 3rem para 4rem */
+      padding: 2.5rem; /* aumentou de 2rem para 2.5rem */
+      background: rgba(0, 0, 0, 0.4); /* aumentou opacidade de 0.3 para 0.4 */
+      border-radius: 20px; /* aumentou de 16px para 20px */
+      border: 2px solid rgba(188, 19, 254, 0.3); /* aumentou espessura da borda */
+      text-align: left;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 8px 32px rgba(0,0,0,0.3); /* adicionou sombras */
+    }
+    .legal-title {
+      font-size: 1.3rem; /* aumentou de 1.2rem para 1.3rem */
+      color: #bc13fe;
+      margin-bottom: 2rem; /* aumentou de 1.5rem para 2rem */
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 0 0 10px #bc13fe44; /* adicionou sombra */
+    }
+    .legal-content {
+      font-size: 1rem; /* aumentou de 0.9rem para 1rem */
+      line-height: 1.7; /* aumentou de 1.6 para 1.7 */
+      color: #ddd; /* clareou a cor de #ccc para #ddd */
+    }
+    .legal-content h4 {
+      color: #bc13fe;
+      margin: 2rem 0 1rem 0; /* aumentou margem superior */
+      font-size: 1.1rem; /* aumentou de 1rem para 1.1rem */
+      text-shadow: 0 0 8px #bc13fe33; /* adicionou sombra */
+    }
+    .legal-content ul {
+      margin: 0.5rem 0;
+      padding-left: 1.5rem;
+    }
+    .legal-content li {
+      margin-bottom: 0.5rem;
+    }
+    .back-home {
+      display: block;
+      margin: 2rem auto 0 auto;
+      color: #bc13fe;
+      text-decoration: underline;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    .back-home:hover {
+      color: #fff;
+    }
+    @media (max-width: 768px) {
+      .black-plan-container {
+        max-width: 98%;
+        padding: 3rem 1.5rem; /* aumentou padding mobile */
+        min-height: auto;
+      }
+      .black-plan-title {
+        font-size: 2.5rem; /* aumentou de 2.2rem para 2.5rem */
+      }
+      .black-plan-price {
+        font-size: 2.8rem; /* aumentou de 2.5rem para 2.8rem */
+      }
+      .payment-options {
+        gap: 1.5rem; /* aumentou de 1rem para 1.5rem */
+      }
+      .payment-option {
+        min-width: 120px; /* aumentou de 100px para 120px */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="black-plan-container">
+    <div class="black-badge">Black</div>
+    <div class="black-plan-title">Plano Black</div>
+    <div class="black-plan-price">R$ 249,90 <span>/mês</span></div>
+    <ul class="black-plan-benefits">
+      <li>Todos os benefícios do Premium</li>
+      <li>Consultoria presencial ilimitada</li>
+      <li>Personal Trainer exclusivo 5x por semana</li>
+      <li>Acesso antecipado a novas funcionalidades</li>
+      <li>Área VIP na academia</li>
+      <li>Suplementos inclusos no plano</li>
+      <li>Convite para eventos fechados</li>
+      <li>Descontos especiais em parceiros</li>
+      <li>Atendimento prioritário 24/7</li>
+      <li>Plano alimentar e treino 100% individualizados</li>
+    </ul>
+    <div class="payment-methods">
+      <div class="payment-title">Métodos de Pagamento Aceitos</div>
+      <div class="payment-options">
+        <div class="payment-option">
+          <div class="payment-icon">💳</div>
+          <div class="payment-name">Mastercard</div>
+        </div>
+        <div class="payment-option">
+          <div class="payment-icon">📱</div>
+          <div class="payment-name">PIX</div>
+        </div>
+        <div class="payment-option">
+          <div class="payment-icon">🛒</div>
+          <div class="payment-name">Mercado Pago</div>
+        </div>
+        <div class="payment-option">
+          <div class="payment-icon">🏦</div>
+          <div class="payment-name">Transferência Bancária</div>
+        </div>
+      </div>
+    </div>
+    <a href="cadastro.html" class="btn-assinar">Assinar Agora</a>
+    <div class="legal-section">
+      <div class="legal-title">Termos e Condições</div>
+      <div class="legal-content">
+        <h4>📋 Contrato de Assinatura</h4>
+        <ul>
+          <li>Assinatura mensal com renovação automática</li>
+          <li>Cobrança realizada todo dia 15 do mês</li>
+          <li>Primeiro mês com 7 dias de garantia</li>
+          <li>Acesso imediato após confirmação do pagamento</li>
+        </ul>
+        <h4>❌ Política de Cancelamento</h4>
+        <ul>
+          <li>Cancelamento a qualquer momento sem multa</li>
+          <li>Acesso mantido até o final do período pago</li>
+          <li>Reembolso integral em até 7 dias (primeiro mês)</li>
+          <li>Cancelamento via app, site ou atendimento</li>
+        </ul>
+        <h4>⚖️ Responsabilidades</h4>
+        <ul>
+          <li>Nexon Fitness: Fornecer todos os serviços descritos</li>
+          <li>Cliente: Manter dados atualizados e usar responsavelmente</li>
+          <li>Suporte técnico disponível 24/7</li>
+          <li>Garantia de qualidade dos serviços Black</li>
+        </ul>
+        <h4>🔒 Privacidade e Segurança</h4>
+        <ul>
+          <li>Dados protegidos conforme LGPD</li>
+          <li>Pagamentos processados com criptografia SSL</li>
+          <li>Informações pessoais nunca compartilhadas</li>
+          <li>Política de privacidade disponível em nexonfitness.com/privacidade</li>
+        </ul>
+        <p style="margin-top: 1.5rem; font-size: 0.8rem; color: #999;">
+          <strong>NEXON FITNESS LTDA</strong> - CNPJ: 12.345.678/0001-90<br>
+          Endereço: Rua das Academias, 123 - São Paulo/SP<br>
+          SAC: 0800-123-4567 | contato@nexonfitness.com
+        </p>
+      </div>
+    </div>
+    <a href="../index.html" class="back-home">Voltar para a Home</a>
+  </div>
+</body>
+</html>

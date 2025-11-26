@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NEXON FITNESS - Academia do Futuro. Transforme seu corpo, evolua sua mente com nossas planilhas de treino e contadores de calorias.">
+  <title>NEXON - Academia do Futuro</title>
+  <!-- Fontes e Ícones -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Audiowide&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+      body {
+          background-image: url('img/b58affe1-17ec-4ffc-88fe-0811fca4d2c9.png');
+          background-size: cover;
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+          margin-bottom: 20px;
+          width: 100%;
+          padding: 12px;
+          border-radius: 4px;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          background-color: rgba(0, 0, 0, 0.3);
+          color: white;
+          transition: all 0.3s ease;
+      }
+      
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+          outline: none;
+          border-color: #00eeff;
+          box-shadow: 0 0 10px rgba(0, 238, 255, 0.5);
+      }
+      
+      .contact-form textarea {
+          min-height: 150px;
+          resize: vertical;
+      }
+      
+      .contact-form button {
+          margin-top: 10px;
+      }
+      
+      .btn-secondary {
+          background-color: transparent;
+          color: var(--color-secondary);
+          border-color: var(--color-secondary);
+      }
+      
+      .btn-secondary:hover {
+          background-color: var(--color-secondary);
+          color: var(--color-dark);
+          box-shadow: var(--neon-secondary);
+      }
+      
+      .nav-buttons {
+          display: flex;
+          gap: 10px;
+      }
+      
+      @media (max-width: 768px) {
+          .nav-buttons {
+              flex-direction: column;
+              width: 100%;
+          }
+      }
+      
+      .about-image-container {
+          position: relative;
+          height: 50%;
+          width: 80%;
+          margin: 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          border-radius: var(--border-radius-lg);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          background-color: #000;
+      }
+      
+      .about-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+          opacity: 0.9;
+      }
+      
+      .about-image-container:hover .about-image {
+          transform: scale(1.05);
+      }
+      
+      @media (max-width: 768px) {
+          .about-image-container {
+              margin-top: var(--space-lg);
+              height: 200px;
+              width: 100%;
+          }
+      }
+      
+      .about-content h3 {
+          color: var(--color-primary);
+          margin-bottom: 1rem;
+          font-family: 'Poppins', 'Orbitron', sans-serif;
+      }
+      .about-content ul {
+          font-family: 'Poppins', 'Audiowide', cursive, sans-serif;
+      }
+      
+      .about-content p {
+          margin-bottom: 1rem;
+          line-height: 1.5;
+          font-family: 'Poppins', 'Audiowide', cursive, sans-serif;
+      }
+      
+      .about-content ul {
+          list-style-type: none;
+          padding-left: 0;
+          margin-bottom: 1.5rem;
+      }
+      
+      .about-content li {
+          position: relative;
+          padding-left: 1.5rem;
+          margin-bottom: 0.75rem;
+          line-height: 1.5;
+      }
+      
+      .about-content li::before {
+          content: '>';
+          position: absolute;
+          left: 0;
+          color: var(--color-secondary);
+          font-weight: bold;
+      }
+
+      .hero {
+          position: relative;
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          background: #000;
+      }
+
+      .hero::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.9) 100%);
+          z-index: 1;
+      }
+
+      .particles {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+      }
+
+      .particle {
+          position: absolute;
+          width: 4px;
+          height: 4px;
+          background: #00eeff; /* ciano sólido */
+          border-radius: 50%;
+          animation: float 15s infinite linear;
+          box-shadow: 0 0 0 #00eeff; /* pode ser 0, pois o drop-shadow faz o brilho real */
+          filter:
+              drop-shadow(0 0 16px #00eeff)
+              drop-shadow(0 0 32px #00eeff)
+              drop-shadow(0 0 48px #00eeff)
+              drop-shadow(0 0 64px #00eeff);
+          z-index: 2;
+      }
+
+      .particle:nth-child(1) {
+          top: 20%;
+          left: 20%;
+          animation-delay: 0s;
+          width: 5px;
+          height: 5px;
+      }
+
+      .particle:nth-child(2) {
+          top: 40%;
+          left: 40%;
+          animation-delay: -2s;
+          width: 4px;
+          height: 4px;
+      }
+
+      .particle:nth-child(3) {
+          top: 60%;
+          left: 60%;
+          animation-delay: -4s;
+          width: 5px;
+          height: 5px;
+      }
+
+      .particle:nth-child(4) {
+          top: 80%;
+          left: 80%;
+          animation-delay: -6s;
+          width: 4px;
+          height: 4px;
+      }
+
+      .particle:nth-child(5) {
+          top: 30%;
+          left: 70%;
+          animation-delay: -8s;
+          width: 5px;
+          height: 5px;
+      }
+
+      .particle:nth-child(6) {
+          top: 50%;
+          left: 30%;
+          animation-delay: -10s;
+          width: 4px;
+          height: 4px;
+      }
+
+      .particle:nth-child(7) {
+          top: 70%;
+          left: 50%;
+          animation-delay: -12s;
+          width: 5px;
+          height: 5px;
+      }
+
+      .particle:nth-child(8) {
+          top: 90%;
+          left: 20%;
+          animation-delay: -14s;
+          width: 4px;
+          height: 4px;
+      }
+
+      @keyframes float {
+          0% {
+              transform: translateY(0) translateX(0);
+              opacity: 0;
+          }
+          10% {
+              opacity: 1;
+          }
+          90% {
+              opacity: 1;
+          }
+          100% {
+              transform: translateY(-100vh) translateX(100px);
+              opacity: 0;
+          }
+      }
+
+      .hero-content {
+          position: relative;
+          z-index: 2;
+          text-align: center;
+          width: 100%;
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 0 20px;
+      }
+
+      .hero-content h1.neon-text {
+          font-size: 4rem;
+          margin: 0;
+          text-align: center;
+          color: #fff;
+          text-shadow: 0 0 10px rgba(188, 19, 254, 0.5),
+                       0 0 20px rgba(188, 19, 254, 0.3),
+                       0 0 30px rgba(188, 19, 254, 0.2);
+      }
+
+      .hero-subtitle {
+          font-size: 1.5rem;
+          margin: 1rem 0 2rem;
+          text-align: center;
+          color: #fff;
+          text-shadow: 0 0 5px rgba(188, 19, 254, 0.3);
+      }
+
+      .hero-buttons {
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+      }
+
+      .neon-silver {
+          border-color: #c0c0c0;
+          box-shadow: 0 0 5px #c0c0c0;
+      }
+
+      .neon-silver h3 {
+          color: #c0c0c0;
+          text-shadow: 0 0 5px #c0c0c0;
+      }
+
+      .neon-silver:hover {
+          border-color: #c0c0c0;
+          box-shadow: 0 0 15px #c0c0c0, 0 0 25px #c0c0c0, 0 0 35px #c0c0c0;
+      }
+
+      .neon-gold {
+          border-color: #ffd700;
+          box-shadow: 0 0 5px #ffd700;
+      }
+
+      .neon-gold h3 {
+          color: #ffd700;
+          text-shadow: 0 0 5px #ffd700;
+      }
+
+      .neon-gold:hover {
+          border-color: #ffd700;
+          box-shadow: 0 0 15px #ffd700, 0 0 25px #ffd700, 0 0 35px #ffd700;
+      }
+
+      .neon-red {
+          border-color: #ff0000;
+          box-shadow: 0 0 5px #ff0000;
+      }
+
+      .neon-red h3 {
+          color: #ff0000;
+          text-shadow: 0 0 5px #ff0000;
+      }
+
+      .neon-red:hover {
+          border-color: #ff0000;
+          box-shadow: 0 0 15px #ff0000, 0 0 25px #ff0000, 0 0 35px #ff0000;
+      }
+
+      .plan-card {
+          transition: all 0.3s ease;
+      }
+
+      .plan-card:hover {
+          transform: translateY(-5px);
+      }
+
+      .neon-silver::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background: linear-gradient(90deg, #e0e0e0, #ffffff, #e0e0e0);
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: var(--transition-normal);
+      }
+
+      .neon-gold::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background: linear-gradient(90deg, #ffd700, #fffacd, #ffd700);
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: var(--transition-normal);
+      }
+
+      .neon-red::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background: linear-gradient(90deg, #ff0000, #ff6666, #ff0000);
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: var(--transition-normal);
+      }
+
+      .plan-card:hover::before {
+          transform: scaleX(1);
+      }
+
+      header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1rem 2rem;
+          position: fixed;
+          width: 100%;
+          z-index: 1000;
+          background: rgba(0, 0, 0, 0.8);
+      }
+
+      nav {
+          display: flex;
+          align-items: center;
+      }
+
+      .logo {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-right: auto;
+      }
+
+      .logo-img {
+          width: 50px;
+          height: 50px;
+          object-fit: cover;
+      }
+
+      .logo-text {
+          font-size: 1.2rem;
+          font-weight: bold;
+          color: white;
+          margin: 0;
+      }
+
+      nav a {
+          text-decoration: none;
+          color: white;
+          font-weight: 500;
+          transition: color 0.3s ease;
+      }
+
+      nav a:hover {
+          color: #bc13fe;
+      }
+
+      .btn-login, .btn-register {
+          padding: 0.5rem 1rem;
+          border-radius: 4px;
+          transition: all 0.3s ease;
+      }
+
+      .btn-login {
+          background-color: transparent;
+          border: 1px solid #bc13fe;
+          color: #bc13fe;
+      }
+
+      .btn-register {
+          background-color: #bc13fe;
+          border: 1px solid #bc13fe;
+          color: white;
+      }
+
+      .btn-login:hover {
+          background-color: rgba(188, 19, 254, 0.1);
+          box-shadow: 0 0 10px rgba(188, 19, 254, 0.5);
+      }
+
+      .btn-register:hover {
+          background-color: #a210d8;
+          box-shadow: 0 0 10px rgba(188, 19, 254, 0.5);
+      }
+
+      .navbar {
+          position: fixed;
+          width: 100%;
+          z-index: 1000;
+          background: rgba(0, 0, 0, 0.8);
+      }
+
+      .nav-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          padding: 1rem 2rem;
+          max-width: 1400px;
+          margin: 0 auto;
+      }
+
+      .nav-links {
+          display: flex;
+          align-items: center;
+          gap: 2.5rem;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+      }
+
+      .nav-links li a {
+          text-decoration: none;
+          color: white;
+          font-weight: 500;
+          transition: color 0.3s ease;
+          font-size: 0.9rem;
+      }
+
+      .nav-buttons {
+          display: flex;
+          gap: 1rem;
+          margin-left: 2rem;
+      }
+
+      @media (max-width: 1200px) {
+          .nav-container {
+              padding: 1rem;
+          }
+
+          .nav-links {
+              gap: 2rem;
+          }
+      }
+
+      /* Blog Section */
+      .blog-section {
+          padding: 80px 0;
+          background: #000000af;
+      }
+
+      .blog-section .container {
+          background: transparent;
+          box-shadow: none;
+          border-radius: 0;
+          padding: 40px 30px;
+      }
+
+      .blog-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 30px;
+          margin-top: 40px;
+      }
+
+      .blog-card {
+          background: #1a1a1a;
+          border-radius: 10px;
+          overflow: hidden;
+          transition: transform 0.3s ease;
+          border: 1px solid rgba(188, 19, 254, 0.1);
+      }
+
+      .blog-card:hover {
+          transform: translateY(-5px);
+          border-color: rgba(188, 19, 254, 0.3);
+          box-shadow: 0 5px 15px rgba(188, 19, 254, 0.2);
+      }
+
+      .blog-image {
+          height: 200px;
+          overflow: hidden;
+      }
+
+      .blog-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.3s ease;
+      }
+
+      .blog-card:hover .blog-image img {
+          transform: scale(1.05);
+      }
+
+      .blog-content {
+          padding: 20px;
+      }
+
+      .blog-meta {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 15px;
+          font-size: 0.9rem;
+          color: #888;
+      }
+
+      .blog-category {
+          color: #bc13fe;
+          font-weight: 500;
+      }
+
+      .blog-title {
+          font-size: 1.3rem;
+          margin-bottom: 10px;
+          color: #fff;
+      }
+
+      .blog-excerpt {
+          color: #aaa;
+          margin-bottom: 20px;
+          line-height: 1.6;
+      }
+
+      .read-more {
+          color: #bc13fe;
+          text-decoration: none;
+          font-weight: 500;
+          display: inline-flex;
+          align-items: center;
+          transition: color 0.3s ease;
+      }
+
+      .read-more:hover {
+          color: #fff;
+      }
+
+      .read-more::after {
+          content: '→';
+          margin-left: 5px;
+          transition: transform 0.3s ease;
+      }
+
+      .read-more:hover::after {
+          transform: translateX(5px);
+      }
+
+      .blog-cta {
+          text-align: center;
+          margin-top: 50px;
+      }
+
+      @media (max-width: 768px) {
+          .blog-grid {
+              grid-template-columns: 1fr;
+          }
+
+          .blog-image {
+              height: 250px;
+          }
+      }
+
+      /* Melhorando estilos do botão de perfil e dropdown */
+      .nav-profile {
+          position: relative;
+      }
+
+      .profile-btn {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border: 2px solid transparent;
+          background: linear-gradient(135deg, rgba(188, 19, 254, 0.1), rgba(188, 19, 254, 0.05));
+          backdrop-filter: blur(10px);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          padding: 0;
+          font-size: 24px;
+          transition: all 0.3s ease;
+          margin: 0;
+          position: relative;
+          overflow: hidden;
+      }
+
+      .profile-btn::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          border-radius: 50%;
+          border: 2px solid transparent;
+          background: linear-gradient(135deg, #bc13fe, #8b5cf6) border-box;
+          mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+          mask-composite: xor;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+      }
+
+      .profile-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(188, 19, 254, 0.4);
+          border-color: #bc13fe;
+      }
+
+      .profile-btn:hover::before {
+          opacity: 1;
+      }
+
+      .profile-btn:active {
+          transform: translateY(0);
+      }
+
+      .profile-btn i {
+          color: white;
+          transition: color 0.3s ease;
+          z-index: 1;
+      }
+
+      .profile-btn:hover i {
+          color: #bc13fe;
+      }
+
+      .profile-menu {
+          position: absolute;
+          top: calc(100% + 10px);
+          right: 0;
+          background: rgba(26, 26, 26, 0.95);
+          backdrop-filter: blur(20px);
+          border: 1px solid rgba(188, 19, 254, 0.3);
+          border-radius: 12px;
+          padding: 8px 0;
+          min-width: 200px;
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(188, 19, 254, 0.2);
+          z-index: 1001;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-10px);
+          transition: all 0.3s ease;
+      }
+
+      .profile-menu.show {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+      }
+
+      .profile-menu::before {
+          content: '';
+          position: absolute;
+          top: -6px;
+          right: 20px;
+          width: 12px;
+          height: 12px;
+          background: rgba(26, 26, 26, 0.95);
+          border: 1px solid rgba(188, 19, 254, 0.3);
+          border-bottom: none;
+          border-right: none;
+          transform: rotate(45deg);
+          border-radius: 2px 0 0 0;
+      }
+
+      .profile-menu-item {
+          display: block;
+          padding: 12px 20px;
+          color: white;
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 14px;
+          transition: all 0.3s ease;
+          position: relative;
+          border-left: 3px solid transparent;
+      }
+
+      .profile-menu-item:hover {
+          background: rgba(188, 19, 254, 0.1);
+          border-left-color: #bc13fe;
+          padding-left: 24px;
+      }
+
+      .profile-menu-item.login {
+          color: #bc13fe;
+          font-weight: 600;
+          border-top: 1px solid rgba(188, 19, 254, 0.2);
+          margin-top: 8px;
+      }
+
+      .profile-menu-item.login:hover {
+          background: rgba(188, 19, 254, 0.15);
+          color: white;
+      }
+
+      /* Melhorando responsividade do menu de perfil */
+      @media (max-width: 768px) {
+          .profile-menu {
+              right: -10px;
+              min-width: 180px;
+          }
+          
+          .profile-menu::before {
+              right: 25px;
+          }
+      }
+
+      .calories-section .container {
+          background: transparent;
+          box-shadow: none;
+          border-radius: 0;
+          padding: 40px 30px;
+      }
+  </style>
+</head>
+<body>
+  <!-- Header com Menu de Navegação -->
+  <header class="navbar">
+      <div class="nav-container">
+          <div class="logo">
+              <!-- Removed logo image from header, keeping only text -->
+              <p class="logo-text">NEXON FITNESS</p>
+          </div>
+          <button class="mobile-menu-btn" aria-label="Abrir menu de navegação" aria-expanded="false">
+              <span class="menu-icon"></span>
+          </button>
+          <nav>
+              <ul class="nav-links">
+                  <li><a href="#home">Início</a></li>
+                  <li><a href="#sobre">Sobre</a></li>
+                  <li><a href="#planos">Planos</a></li>
+                  <li><a href="#planilhas">Planilhas</a></li>
+                  <li><a href="#contato">Contato</a></li>
+                  <li><a href="#blog">Blog</a></li>
+                  <!-- Melhorando estrutura do botão de perfil -->
+                  <li class="nav-profile">
+                      <button id="profile-btn" class="profile-btn" aria-label="Abrir menu de perfil" aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-user-circle"></i>
+                      </button>
+                      <div id="profile-menu" class="profile-menu">
+                          <a href="pages/profile.html" class="profile-menu-item">
+                              <i class="fas fa-user" style="margin-right: 8px; width: 16px;"></i>
+                              Perfil
+                          </a>
+                          <a href="pages/settings.html" class="profile-menu-item">
+                              <i class="fas fa-cog" style="margin-right: 8px; width: 16px;"></i>
+                              Configurações
+                          </a>
+                          <a href="pages/login.html" class="profile-menu-item login">
+                              <i class="fas fa-sign-in-alt" style="margin-right: 8px; width: 16px;"></i>
+                              Entrar
+                          </a>
+                      </div>
+                  </li>
+              </ul>
+          </nav>
+      </div>
+  </header>
+
+
+
+  <main>
+      <!-- Hero Section -->
+      <section id="home" class="hero parallax" style="background-image: url('https://image-tc.galaxy.tf/wijpeg-fomvullkz7wzteovimgjyg4v/blossomglass-gym-pullmanmelbourneswanston-may2023-low-005.jpg?width=1980'); background-size: cover; background-position: center;">
+          <div class="particles">
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <!-- Novas partículas -->
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+              <div class="particle"></div>
+          </div>
+          <div class="container">
+              <div class="hero-content text-center">
+                  <!-- Added logo image above NEXON FITNESS title -->
+                  <div style="margin-bottom: 2rem; display: flex; justify-content: center;">
+                      <img src="img/177591857-image-vectorielle-de-loup-spartiate-gym-bodybuilder-en-colère.jpg" alt="NEXON Logo"     style="width: 200px; height: 200px; border-radius: 50%; box-shadow: 0 0 30px rgba(225, 0, 255, 0.6); margin-bottom: 1rem;">
+                  </div>
+                  <h1 class="neon-text">NEXON FITNESS</h1>
+                  <p class="hero-subtitle">TRANSFORME SEU CORPO, EVOLUA SUA MENTE</p>
+                  <div class="hero-buttons">
+                      <a href="pages/cadastro.html" class="btn btn-primary">COMECE AGORA</a>
+                      <a href="#sobre" class="btn btn-outline">SAIBA MAIS</a>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <!-- Seção Sobre -->
+      <section id="sobre" class="section about-section parallax">
+    <div class="container">
+        <h2 class="section-title">SOBRE O SITE</h2>
+        <div class="grid grid-2">
+            <div class="about-content">
+                <h3>Bem-vindo à NEXON: Sua Plataforma Definitiva para Otimização de Treinos e Controle de Calorias</h3>
+                <p>Na NEXON, oferecemos muito mais do que simples planilhas de treino. Nossa plataforma foi desenvolvida para ser sua aliada definitiva na jornada em direção à saúde e ao condicionamento físico. Com soluções personalizadas para todos os níveis — desde iniciantes até atletas avançados — garantimos que você tenha acesso às ferramentas mais avançadas para maximizar seu desempenho e atingir seus objetivos.</p>
+                <h3>O que a NEXON oferece?</h3>
+                <ul>
+                    <li><strong>Planilhas de Treino Personalizadas:</strong> Nossas planilhas são criadas com base nas suas metas, nível de condicionamento e preferências pessoais. Se você busca ganho de massa muscular, emagrecimento ou aumento de resistência, temos o treino ideal para você.</li>
+                    <li><strong>Tecnologia de Ponta para Contagem de Calorias:</strong> Através de um sistema inteligente de contagem de calorias, você poderá acompanhar com precisão o consumo de energia e ajustar sua alimentação conforme necessário. Nosso contador é alimentado por dados atualizados, oferecendo uma visão detalhada de como cada exercício impacta no seu gasto calórico.</li>
+                    <li><strong>Monitoramento de Progresso:</strong> Com ferramentas avançadas de análise de performance, você pode acompanhar seu progresso ao longo do tempo. Relatórios visuais e detalhados ajudam a identificar suas melhorias, áreas que precisam de atenção e ajustar seus treinos para um desempenho ainda maior.</li>
+                    <li><strong>Suporte Profissional Contínuo:</strong> Nossa equipe de especialistas em treinamento e nutrição está à disposição para oferecer suporte sempre que necessário. Seja para tirar dúvidas, fornecer orientações sobre nutrição ou ajustar seu plano de treino, garantimos que você tenha todo o apoio para alcançar seus objetivos.</li>
+                    <li><strong>Acesso a Recursos Exclusivos:</strong> Além das planilhas de treino, você terá acesso a conteúdos educativos, dicas de treino, planos alimentares e muito mais, tudo com base nas mais recentes pesquisas e boas práticas do mundo fitness.</li>
+                </ul>
+                <h3>Por que escolher a NEXON?</h3>
+                <ul>
+                    <li>✅ <strong>Personalização Real</strong> — cada treino e plano é feito sob medida para você, sem generalizações.</li>
+                    <li>✅ <strong>Tecnologia de Ponta</strong> — dados claros e confiáveis para orientar suas escolhas.</li>
+                    <li>✅ <strong>Acompanhamento Profissional</strong> — suporte humano, para que você nunca fique sozinho na jornada.</li>
+                    <li>✅ <strong>Resultados Sustentáveis</strong> — evolução contínua, baseada em ciência, disciplina e motivação.</li>
+                </ul>
+                <p>
+                    Na NEXON, você encontra tudo o que precisa para unir corpo, mente e performance em um só lugar. Mais do que treinos, oferecemos uma experiência completa de transformação, onde cada detalhe é pensado para aproximar você dos seus objetivos.
+                </p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1rem; width: 95%;">
+                <div class="about-image-container" style="height: 600px; width: 100%;">
+                    <img src="img/wp11591297.webp" alt="Sobre o site - NEXON FITNESS" class="about-image" style="height: 100%; width: 100%;">
+                </div>
+                <div class="about-image-container" style="height: 600px; width: 100%;">
+                    <img src="img/depositphotos_99814890-stock-illustration-fitness-girl-sketch-gray-background.jpg" alt="Sobre o site - NEXON FITNESS 2" class="about-image" style="height: 100%; width: 100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+      </section>
+
+      <!-- Seção Planilhas -->
+      <section id="planilhas" class="section workouts-section parallax">
+          <div class="container">
+              <h2 class="section-title">PLANILHAS</h2>
+              <div class="grid grid-4">
+                  <article class="card workout-card">
+                      <a href="pages/iniciante.html">
+                          <div class="workout-image">
+                              <img src="/img/805233.jpg" alt="Treino para iniciantes" width="300" height="200" loading="lazy">
+                          </div>
+                          <h3>Iniciante</h3>
+                          <p>Planilhas para quem está começando</p>
+                      </a>
+                  </article>
+                  <article class="card workout-card">
+                      <a href="pages/intermediario.html">
+                          <div class="workout-image">
+                              <img src="/img/HD-wallpaper-fitness-gym-workout-healthy.jpg" alt="Treino intermediário" width="300" height="200" loading="lazy">
+                          </div>
+                          <h3>Intermediário</h3>
+                          <p>Planilhas para quem já tem experiência</p>
+                      </a>
+                  </article>
+                  <article class="card workout-card">
+                      <a href="pages/avancado.html">
+                          <div class="workout-image">
+                              <img src="img/cab876dbdb1f3cf298d0b7b43e9734fb.jpg" alt="Treino avançado" width="300" height="200" loading="lazy">
+                          </div>
+                          <h3>Avançado</h3>
+                          <p>Planilhas para atletas avançados</p>
+                      </a>
+                  </article>
+                  <article class="card workout-card">
+                      <a href="pages/seu-treino.html">
+                          <div class="workout-image">
+                              <img src="img/gym-training-motivational-quote-p88ok3arlftnofza.jpg" alt="Personalização de treino" width="300" height="200" loading="lazy">
+                          </div>
+                          <h3>Seu Treino</h3>
+                          <p>Personalize seu próprio treino</p>
+                      </a>
+                  </article>
+              </div>
+          </div>
+      </section>
+
+      <!-- Seção Treinos em Casa -->
+      <section id="treinos-casa" class="section home-workouts-section parallax">
+          <div class="container">
+              <h2 class="section-title">TREINOS EM CASA</h2>
+              <div class="grid grid-4">
+                  <article class="card workout-card">
+                      <a href="pages/casa-iniciante.html">
+                          <div class="workout-image">
+                              <img src="img/aada7b7d09f02d02ac2ae13ea7b738f3.jpg" alt="Treino em casa para iniciantes" width="300" height="200" loading="lazy">
+                          </div>
+                          <h3>Iniciante</h3>
+                          <p>Treinos em casa para quem está começando</p>
+                      </a>
+                  </article>
+                  <article class="card workout-card">
+                      <a href="pages/casa-intermediario.html">
+                          <div class="workout-image">
+                              <img src="img/wp2346544.jpg" alt="Treino em casa intermediário" width="300" height="200" loading="lazy">
+                          </div>
+                          <h3>Intermediário</h3>
+                          <p>Treinos em casa para nível médio</p>
+                      </a>
+                  </article>
+                  <article class="card workout-card">
+                      <a href="pages/casa-avancado.html">
+                          <div class="workout-image">
+                              <img src="img/7d591529d90f6d842701aaf87ce09572.jpg" alt="Treino em casa avançado" width="300" height="200" loading="lazy">
+                          </div>
+                          <h3>Avançado</h3>
+                          <p>Treinos em casa para atletas experientes</p>
+                      </a>
+                  </article>
+                  <article class="card workout-card">
+                      <a href="pages/casa-personalizado.html">
+                          <div class="workout-image">
+                              <img src="img/images (5).jpg" alt="Treino em casa personalizado" width="300" height="200" loading="lazy">
+                          </div>
+                          <h3>Personalizado</h3>
+                          <p>Monte seu treino em casa sob medida</p>
+                      </a>
+                  </article>
+              </div>
+          </div>
+      </section>
+
+      <!-- Seção Contadores de Calorias -->
+      <section id="calorias" class="section calories-section parallax">
+          <div class="container">
+              <h2 class="section-title">CONTADORES DE CALORIAS</h2>
+              <div class="grid grid-2">
+                  <article class="card calorie-card">
+                      <a href="pages/calorias.html">
+                          <div class="calorie-image">
+                              <img src="https://wallpapers.com/images/featured/food-4k-1pf6px6ryqfjtnyr.jpg" alt="Contador de Calorias" width="400" height="250" loading="lazy">
+                          </div>
+                          <h3>Contador de Calorias</h3>
+                          <p>Monitore sua ingestão calórica diária</p>
+                      </a>
+                  </article>
+              </div>
+          </div>
+      </section>
+
+      <!-- Seção Planos -->
+      <section id="planos" class="section plans-section parallax">
+          <div class="container">
+              <h2 class="section-title">PLANOS</h2>
+              <div class="grid grid-3">
+                  <article class="card plan-card neon-silver">
+                      <h3>BÁSICO</h3>
+                      <div class="price">R$ 89,90<span>/mês</span></div>
+                      <ul class="plan-features">
+                          <li>Acesso à Academia</li>
+                          <li>Área de Musculação</li>
+                          <li>Aulas em Grupo</li>
+                      </ul>
+                      <a href="pages/assinar-basico.html" class="btn btn-primary">ESCOLHER PLANO</a>
+                  </article>
+                  <article class="card plan-card neon-gold">
+                      <h3>PREMIUM</h3>
+                      <div class="price">R$ 149,90<span>/mês</span></div>
+                      <ul class="plan-features">
+                          <li>Todos os benefícios do Básico</li>
+                          <li>Acompanhamento Nutricional</li>
+                          <li>Personal Trainer</li>
+                          <li>Acesso ao App Premium</li>
+                      </ul>
+                      <a href="pages/assinar-premium.html" class="btn btn-primary">ESCOLHER PLANO</a>
+                  </article>
+                  <article class="card plan-card neon-red">
+                      <h3>BLACK</h3>
+                      <div class="price">R$ 249,90<span>/mês</span></div>
+                      <ul class="plan-features">
+                          <li>Todos os benefícios do Premium</li>
+                          <li>Acesso VIP</li>
+                          <li>Consultoria Especializada</li>
+                          <li>Treinos Personalizados</li>
+                      </ul>
+                      <a href="pages/assinar-black.html" class="btn btn-primary">ESCOLHER PLANO</a>
+                  </article>
+              </div>
+          </div>
+      </section>
+
+      <!-- Seção Contato -->
+      <section id="contato" class="section contact-section parallax">
+          <div class="container">
+              <h2 class="section-title">CONTATO</h2>
+              <div class="grid grid-2">
+                  <div class="contact-info">
+                      <address>
+                          <div class="info-item">
+                              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                              <p>Av. Principal, 1000<br>Centro - Sua Cidade</p>
+                          </div>
+                          <div class="info-item">
+                              <i class="fas fa-phone" aria-hidden="true"></i>
+                              <p><a href="tel:+5511999999999">(11) 99999-9999</a></p>
+                          </div>
+                          <div class="info-item">
+                              <i class="fas fa-envelope" aria-hidden="true"></i>
+                              <p><a href="mailto:contato@nexonfitness.com">contato@nexonfitness.com</a></p>
+                          </div>
+                          <div class="info-item">
+                              <i class="fas fa-clock" aria-hidden="true"></i>
+                              <p>Segunda a Sexta: 6h - 22h<br>Sábado: 8h - 18h</p>
+                          </div>
+                      </address>
+                  </div>
+                  <form class="contact-form" action="submit-form.php" method="POST">
+                      <div class="form-group">
+                          <label for="nome" class="sr-only">Nome</label>
+                          <input type="text" id="nome" name="nome" placeholder="Nome" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="email" class="sr-only">Email</label>
+                          <input type="email" id="email" name="email" placeholder="Email" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="mensagem" class="sr-only">Mensagem</label>
+                          <textarea id="mensagem" name="mensagem" placeholder="Mensagem" required></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary">ENVIAR</button>
+                  </form>
+              </div>
+          </div>
+      </section>
+
+      <!-- Blog Section -->
+      <section id="blog" class="blog-section">
+          <div class="container">
+              <div class="blog-header">
+                  <h2>Blog</h2>
+                  <a href="pages/blog.html" class="view-all">Ver todos os artigos</a>
+              </div>
+              
+              <div class="blog-grid">
+                  <article class="blog-card">
+                      <div class="blog-image">
+                          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Treino em Casa">
+                      </div>
+                      <div class="blog-content">
+                          <div class="blog-meta">
+                              <span class="blog-category">Treino</span>
+                              <span class="blog-date">15 Março 2024</span>
+                          </div>
+                          <h3 class="blog-title">Treino em Casa: Guia Completo</h3>
+                          <p class="blog-excerpt">Descubra como manter sua rotina de exercícios mesmo sem ir à academia...</p>
+                          <a href="pages/blog.html" class="read-more">Ler mais</a>
+                      </div>
+                  </article>
+
+                  <article class="blog-card">
+                      <div class="blog-image">
+                          <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Alimentação Saudável">
+                      </div>
+                      <div class="blog-content">
+                          <div class="blog-meta">
+                              <span class="blog-category">Nutrição</span>
+                              <span class="blog-date">10 Março 2024</span>
+                          </div>
+                          <h3 class="blog-title">Alimentação Saudável para Atletas</h3>
+                          <p class="blog-excerpt">Conheça os alimentos essenciais para melhorar seu desempenho...</p>
+                          <a href="pages/blog.html" class="read-more">Ler mais</a>
+                      </div>
+                  </article>
+
+                  <article class="blog-card">
+                      <div class="blog-image">
+                          <img src="img/5-suplementos-populares-entre-quem-pratica-atividade-fisica.jpg" alt="Suplementação">
+                      </div>
+                      <div class="blog-content">
+                          <div class="blog-meta">
+                              <span class="blog-category">Suplementação</span>
+                              <span class="blog-date">5 Março 2024</span>
+                          </div>
+                          <h3 class="blog-title">Suplementação: O que você precisa saber</h3>
+                          <p class="blog-excerpt">Entenda quando e como usar suplementos para potencializar seus resultados...</p>
+                          <a href="pages/blog.html" class="read-more">Ler mais</a>
+                      </div>
+                  </article>
+              </div>
+
+              <div class="blog-cta">
+                  <a href="pages/blog.html" class="btn btn-primary">Ver Todos os Artigos</a>
+              </div>
+          </div>
+      </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+      <div class="container">
+          <div class="footer-content">
+              <div class="footer-logo">
+                  <p>NEXON FITNESS</p>
+              </div>
+              <div class="footer-links">
+                  <div class="footer-column">
+                      <h4>Links Rápidos</h4>
+                      <ul>
+                          <li><a href="#sobre">Sobre</a></li>
+                          <li><a href="#planos">Planos</a></li>
+                          <li><a href="#planilhas">Planilhas</a></li>
+                          <li><a href="#treinos-casa">Treinos em Casa</a></li>
+                          <li><a href="#contato">Contato</a></li>
+                          <li><a href="#calorias">Calorias</a></li>
+                      </ul>
+                  </div>
+                  <div class="footer-column">
+                      <h4>Redes Sociais</h4>
+                      <div class="social-links">
+                          <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                          <a href="#" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                          <a href="#" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="footer-bottom">
+              <p>&copy; 2025 NEXON FITNESS. Todos os direitos reservados.</p>
+          </div>    
+      </div>
+  </footer>
+
+  <!-- Chatbot elements will be dynamically created by js/chatbot.js -->
+
+  <!-- Scripts externos -->
+  <script src="js/main.js"></script>
+</body>
+</html>
